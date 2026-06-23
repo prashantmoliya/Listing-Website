@@ -1,0 +1,1 @@
+export { navLinks, features } from "./data";

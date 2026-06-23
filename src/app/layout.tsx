@@ -26,7 +26,7 @@ export default function RootLayout({
       lang="en" 
       className={cn("h-full", "antialiased", rethinkSans.variable, "font-sans")}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }
