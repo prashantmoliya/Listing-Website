@@ -1,1 +1,1 @@
-export { navLinks, features } from "./data";
+export * from "./data";

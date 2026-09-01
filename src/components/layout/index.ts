@@ -1,4 +1,4 @@
 
-export { default as AppLayout } from "./AppLayout";
-export { default as Header } from "./Header";
-export { default as Footer } from "./Footer";
+export { default as AppLayout } from "./app-layout";
+export { default as Header } from "./header";
+export { default as Footer } from "./footer";

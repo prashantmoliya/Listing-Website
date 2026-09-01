@@ -1,1 +1,9 @@
-export { default as Hero } from "./Hero"
+export { default as Hero } from "./hero";
+export { default as GetDiscovered } from "./get-discovered";
+export { default as RegistrationStepsBanner } from "./registration-steps";
+export { default as BrowseCategory } from "./browse-category";
+export { default as FeaturedListings } from "./featured-listings";
+export { default as RecentListings } from "./recent-listings";
+export { default as BrowseCity } from "./browse-city";
+export { default as GrowthCta } from "./growth-cta";
+export { default as MarqueeCategories } from "./marquee-categories";

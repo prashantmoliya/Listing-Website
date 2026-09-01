@@ -1,11 +1,248 @@
 "use client";
 
+import Link from "next/link";
+import { 
+  Building, 
+  Mail, 
+  MapPin, 
+  ArrowRight
+} from "lucide-react";
+import { Container } from "../common";
+
 export default function Footer() {
+  const categoryCol1 = [
+    { name: "Business & Services", slug: "business-services" },
+    { name: "Hotels & Restaurants", slug: "hotels-restaurants" },
+    { name: "Education", slug: "education" },
+    { name: "Travel & Tourism", slug: "travel-tourism" },
+    { name: "Automotive", slug: "automotive" },
+    { name: "Events & Entertainment", slug: "events-entertainment" },
+    { name: "Clothing & Fashion", slug: "clothing-fashion" },
+    { name: "Sports & Fitness", slug: "sports-fitness" },
+  ];
+
+  const categoryCol2 = [
+    { name: "Health & Beauty", slug: "health-beauty" },
+    { name: "Shopping", slug: "shopping" },
+    { name: "Real Estate", slug: "real-estate" },
+    { name: "Technology & IT", slug: "technology-it" },
+    { name: "Legal & Finance", slug: "legal-finance" },
+    { name: "Home & Garden", slug: "home-garden" },
+    { name: "Advertising & Marketing", slug: "advertising-marketing" },
+    { name: "Pet Services", slug: "pet-services" },
+  ];
+
+  const cityCol1 = [
+    { name: "Mumbai", slug: "mumbai" },
+    { name: "Bangalore", slug: "bengaluru" },
+    { name: "Chennai", slug: "chennai" },
+    { name: "Pune", slug: "pune" },
+    { name: "Jaipur", slug: "jaipur" },
+    { name: "Indore", slug: "indore" },
+  ];
+
+  const cityCol2 = [
+    { name: "Delhi", slug: "new-delhi" },
+    { name: "Hyderabad", slug: "hyderabad" },
+    { name: "Kolkata", slug: "kolkata" },
+    { name: "Ahmedabad", slug: "ahmedabad" },
+    { name: "Lucknow", slug: "lucknow" },
+    { name: "Kochi", slug: "kochi" },
+  ];
+
+  const quickLinks = [
+    { name: "Submit Free Listing", href: "/listings/create" },
+    { name: "Featured Listings", href: "/featured" },
+    { name: "All Categories", href: "/categories" },
+    { name: "Search Businesses", href: "/listings" },
+    { name: "Advertise With Us", href: "/advertise" },
+    { name: "About Us", href: "/about" },
+    { name: "Contact", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+  ];
+
+  const popularSearches = [
+    { label: "Restaurants in Delhi", href: "/listings?q=Restaurants&city=Delhi" },
+    { label: "IT Companies in Bangalore", href: "/listings?q=IT+Companies&city=Bangalore" },
+    { label: "Hotels in Mumbai", href: "/listings?q=Hotels&city=Mumbai" },
+    { label: "Coaching in Indore", href: "/listings?q=Coaching&city=Indore" },
+    { label: "Doctors in Hyderabad", href: "/listings?q=Doctors&city=Hyderabad" },
+    { label: "Real Estate in Pune", href: "/listings?q=Real+Estate&city=Pune" },
+  ];
+
   return (
-    <footer className="border-t border-slate-200 bg-slate-950 text-slate-300">
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <p className="text-sm">© {new Date().getFullYear()} Business Listing. All rights reserved.</p>
-        <p className="text-sm text-slate-400">Simple business directory website structure.</p>
+    <footer className="bg-card-foreground text-slate-400 text-sm bor der-t border-slate-800/80">
+      {/* Main Footer Columns */}
+      <Container className="py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+          
+          {/* Column 1: Brand & Contact (Left - 3.5 cols) */}
+          <div className="lg:col-span-3 space-y-6">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-indigo-600 shadow-md">
+                <Building size={26} className="text-indigo-600" />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-0.5">
+                  <span className="text-xl font-black tracking-tight text-white">
+                    IndianListing
+                  </span>
+                  <span className="text-xl font-black tracking-tight text-indigo-400">
+                    Bucket
+                  </span>
+                </div>
+                <span className="text-xs font-medium text-slate-400 tracking-wide">
+                  India&apos;s Premier Directory
+                </span>
+              </div>
+            </Link>
+
+            <p className="text-sm leading-relaxed text-slate-400 font-normal">
+              Discover and connect with local businesses across India. Submit your business listing for free and reach millions of customers.
+            </p>
+
+            {/* Email Pill Box */}
+           <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-800/80 text-slate-300 text-sm">
+              <Mail className="w-4 h-4 text-indigo-400 shrink-0" />
+              <a href="mailto:info@indianlistingbucket.com" className="hover:text-white transition-colors">
+                info@indianlistingbucket.com
+              </a>
+            </div>
+
+            {/* Social Icon */}
+            <div>
+              <a
+                href="https://instagram.com/indianlistingbucket"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 rounded-xl bg-slate-900/50 border border-slate-800/80 text-pink-400 hover:text-pink-300 hover:bg-slate-900 flex items-center justify-center transition-colors shadow-xs"
+              >
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: Browse Categories (4 cols with 2 sub-columns) */}
+          <div className="lg:col-span-4 space-y-4">
+            <h3 className="text-base font-bold text-white tracking-wide">
+              Browse Categories
+            </h3>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm font-normal">
+              <ul className="space-y-2.5">
+                {categoryCol1.map((cat) => (
+                  <li key={cat.slug}>
+                    <Link href={`/listings?cat=${cat.slug}`} className="hover:text-white transition-colors">
+                      {cat.name}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/categories" className="text-indigo-400 hover:text-indigo-300 font-bold transition-colors inline-flex items-center gap-1 mt-1">
+                    <span>View All</span>
+                    <span>→</span>
+                  </Link>
+                </li>
+              </ul>
+
+              <ul className="space-y-2.5">
+                {categoryCol2.map((cat) => (
+                  <li key={cat.slug}>
+                    <Link href={`/listings?cat=${cat.slug}`} className="hover:text-white transition-colors">
+                      {cat.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Column 3: Popular Cities (3 cols with 2 sub-columns) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h3 className="text-base font-bold text-white tracking-wide">
+              Popular Cities
+            </h3>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm font-normal">
+              <ul className="space-y-2.5">
+                {cityCol1.map((city) => (
+                  <li key={city.slug}>
+                    <Link href={`/city/${city.slug}`} className="hover:text-white transition-colors flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                      <span>{city.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="space-y-2.5">
+                {cityCol2.map((city) => (
+                  <li key={city.slug}>
+                    <Link href={`/city/${city.slug}`} className="hover:text-white transition-colors flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                      <span>{city.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Column 4: Quick Links (2 cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h3 className="text-base font-bold text-white tracking-wide">
+              Quick Links
+            </h3>
+            <ul className="space-y-2.5 text-sm font-normal">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      </Container>
+
+      {/* Full-Width Popular Searches Section */}
+      <div className="border-t border-slate-800/80 py-8">
+        <Container>
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
+            POPULAR SEARCHES
+          </p>
+          <div className="flex flex-wrap gap-2.5">
+            {popularSearches.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="px-4 py-2 rounded-full bg-slate-900/50 hover:bg-slate-800/80 text-xs font-medium text-slate-400 hover:text-white border border-slate-800/80 hover:border-slate-700 transition-colors shadow-2xs"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </div>
+
+      {/* Bottom Copyright & Legal Links */}
+      <div className="border-t border-slate-800/80 py-6">
+        <Container>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div>
+              <span>© {new Date().getFullYear()} IndianListingBucket. All rights reserved. 🇮🇳</span>
+            </div>
+            <div className="flex items-center gap-6 text-slate-400 font-medium">
+              <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            </div>
+          </div>
+        </Container>
       </div>
     </footer>
   );
