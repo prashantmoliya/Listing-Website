@@ -135,7 +135,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {categoryCol1.map((cat) => (
                   <li key={cat.slug}>
-                    <Link href={`/listings?cat=${cat.slug}`} className="hover:text-white transition-colors">
+                    <Link href={`/listings?category=${cat.slug}`} className="hover:text-white transition-colors">
                       {cat.name}
                     </Link>
                   </li>
@@ -151,7 +151,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {categoryCol2.map((cat) => (
                   <li key={cat.slug}>
-                    <Link href={`/listings?cat=${cat.slug}`} className="hover:text-white transition-colors">
+                    <Link href={`/listings?category=${cat.slug}`} className="hover:text-white transition-colors">
                       {cat.name}
                     </Link>
                   </li>
@@ -169,7 +169,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {cityCol1.map((city) => (
                   <li key={city.slug}>
-                    <Link href={`/city/${city.slug}`} className="hover:text-white transition-colors flex items-center gap-1.5">
+                    <Link href={`/listings?city=${city.slug}`} className="hover:text-white transition-colors flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                       <span>{city.name}</span>
                     </Link>
@@ -180,7 +180,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {cityCol2.map((city) => (
                   <li key={city.slug}>
-                    <Link href={`/city/${city.slug}`} className="hover:text-white transition-colors flex items-center gap-1.5">
+                    <Link href={`/listings?city=${city.slug}`} className="hover:text-white transition-colors flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                       <span>{city.name}</span>
                     </Link>

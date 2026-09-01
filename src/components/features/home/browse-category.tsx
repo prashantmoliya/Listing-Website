@@ -24,7 +24,7 @@ export default function BrowseCategory() {
           {categoriesList.map((cat) => (
             <Link
               key={cat.slug}
-              href={`/listings?cat=${cat.slug}`}
+              href={`/listings?category=${cat.slug}`}
               className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl border border-slate-100 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center"
             >
               <span className="text-3xl sm:text-4xl mb-2.5 group-hover:scale-110 transition-transform">

@@ -15,8 +15,10 @@ export interface ListingItem {
   categorySlug: string;
   rating: number;
   reviewsCount: number;
+  views?: number;
   verified: boolean;
   featured: boolean;
+  isNew?: boolean;
   address: string;
   city: string;
   phone: string;
@@ -205,16 +207,16 @@ export const popularTags = [
 ];
 
 export const marqueeCategories = [
-  { label: "Restaurants", href: "/listings?cat=hotels-restaurants" },
-  { label: "IT Companies", href: "/listings?cat=technology-it" },
-  { label: "Hotels", href: "/listings?cat=hotels-restaurants" },
-  { label: "Coaching Centers", href: "/listings?cat=education" },
-  { label: "Doctors & Clinics", href: "/listings?cat=health-beauty" },
-  { label: "Real Estate", href: "/listings?cat=real-estate" },
-  { label: "Car Dealers", href: "/listings?cat=automotive" },
-  { label: "Lawyers", href: "/listings?cat=legal-finance" },
-  { label: "Gyms & Fitness", href: "/listings?cat=sports-fitness" },
-  { label: "Fashion & Clothing", href: "/listings?cat=clothing-fashion" },
+  { label: "Restaurants", href: "/listings?category=hotels-restaurants" },
+  { label: "IT Companies", href: "/listings?category=technology-it" },
+  { label: "Hotels", href: "/listings?category=hotels-restaurants" },
+  { label: "Coaching Centers", href: "/listings?category=education" },
+  { label: "Doctors & Clinics", href: "/listings?category=health-beauty" },
+  { label: "Real Estate", href: "/listings?category=real-estate" },
+  { label: "Car Dealers", href: "/listings?category=automotive" },
+  { label: "Lawyers", href: "/listings?category=legal-finance" },
+  { label: "Gyms & Fitness", href: "/listings?category=sports-fitness" },
+  { label: "Fashion & Clothing", href: "/listings?category=clothing-fashion" },
 ];
 
 export const featuredListings: ListingItem[] = [
@@ -226,6 +228,7 @@ export const featuredListings: ListingItem[] = [
     categorySlug: "technology-it",
     rating: 4.9,
     reviewsCount: 142,
+    views: 1420,
     verified: true,
     featured: true,
     address: "Electronic City Phase 1, Hosur Road",
@@ -244,6 +247,7 @@ export const featuredListings: ListingItem[] = [
     categorySlug: "hotels-restaurants",
     rating: 4.8,
     reviewsCount: 326,
+    views: 3250,
     verified: true,
     featured: true,
     address: "Connaught Circus, Inner Circle",
@@ -262,6 +266,7 @@ export const featuredListings: ListingItem[] = [
     categorySlug: "health-beauty",
     rating: 5.0,
     reviewsCount: 89,
+    views: 980,
     verified: true,
     featured: true,
     address: "Linking Road, Bandra West",
@@ -280,6 +285,7 @@ export const featuredListings: ListingItem[] = [
     categorySlug: "real-estate",
     rating: 4.7,
     reviewsCount: 215,
+    views: 2100,
     verified: true,
     featured: true,
     address: "HITEC City, Madhapur",
@@ -301,8 +307,10 @@ export const recentListings: ListingItem[] = [
     categorySlug: "health-beauty",
     rating: 4.6,
     reviewsCount: 45,
+    views: 450,
     verified: true,
     featured: false,
+    isNew: true,
     address: "FC Road, Shivajinagar",
     city: "Pune",
     phone: "+91 20234 56781",
@@ -318,8 +326,10 @@ export const recentListings: ListingItem[] = [
     categorySlug: "education",
     rating: 4.9,
     reviewsCount: 178,
+    views: 1850,
     verified: true,
     featured: false,
+    isNew: true,
     address: "Indrapuri, C-Scheme",
     city: "Jaipur",
     phone: "+91 14123 45678",
@@ -335,8 +345,10 @@ export const recentListings: ListingItem[] = [
     categorySlug: "logistics",
     rating: 4.7,
     reviewsCount: 92,
+    views: 730,
     verified: true,
     featured: false,
+    isNew: true,
     address: "SG Highway, Prahlad Nagar",
     city: "Ahmedabad",
     phone: "+91 79234 56789",
@@ -352,8 +364,10 @@ export const recentListings: ListingItem[] = [
     categorySlug: "travel-tourism",
     rating: 4.8,
     reviewsCount: 160,
+    views: 1620,
     verified: true,
     featured: false,
+    isNew: true,
     address: "Old Madras Road, Whitefield",
     city: "Bangalore",
     phone: "+91 80345 67890",

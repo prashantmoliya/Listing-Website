@@ -23,7 +23,7 @@ export default function BrowseCity() {
           {citiesList.map((city) => (
             <Link
               key={city.slug}
-              href={`/city/${city.slug}`}
+              href={`/listings?city=${city.slug}`}
               className="flex flex-col items-center justify-center gap-2 p-4 bg-white rounded-2xl border border-slate-100 shadow-[0_4px_24px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center"
             >
               <span className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform">

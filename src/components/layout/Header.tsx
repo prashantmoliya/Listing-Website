@@ -34,7 +34,7 @@ export default function Header() {
                 <Sparkles className="w-3.5 h-3.5 text-indigo-300" /> Free
               </span>
               <span className="text-slate-200 font-medium text-xs sm:text-sm">
-                India&apos;s #1 Free Business Listing Website — Covering 500+ Cities &amp; 25+ Categories!
+                India&apos;s #1 Free Business Listing Directory
               </span>
             </div>
             <div className="hidden sm:flex items-center gap-5 shrink-0 text-slate-200 text-xs sm:text-sm">
@@ -113,28 +113,28 @@ export default function Header() {
                         </div>
                       </Link>
                       <Link 
-                        href="/listings?cat=hotels-restaurants" 
+                        href="/listings?category=hotels-restaurants" 
                         className="flex items-center gap-3 px-4 py-2 rounded-xl hover:bg-slate-50 text-slate-700 hover:text-indigo-600 transition-all text-sm font-semibold"
                       >
                         <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                         <span>Hotels &amp; Restaurants</span>
                       </Link>
                       <Link 
-                        href="/listings?cat=health-beauty" 
+                        href="/listings?category=health-beauty" 
                         className="flex items-center gap-3 px-4 py-2 rounded-xl hover:bg-slate-50 text-slate-700 hover:text-indigo-600 transition-all text-sm font-semibold"
                       >
                         <span className="w-2.5 h-2.5 rounded-full bg-pink-400"></span>
                         <span>Health &amp; Beauty</span>
                       </Link>
                       <Link 
-                        href="/listings?cat=technology-it" 
+                        href="/listings?category=technology-it" 
                         className="flex items-center gap-3 px-4 py-2 rounded-xl hover:bg-slate-50 text-slate-700 hover:text-indigo-600 transition-all text-sm font-semibold"
                       >
                         <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
                         <span>Technology &amp; IT</span>
                       </Link>
                       <Link 
-                        href="/listings?cat=real-estate" 
+                        href="/listings?category=real-estate" 
                         className="flex items-center gap-3 px-4 py-2 rounded-xl hover:bg-slate-50 text-slate-700 hover:text-indigo-600 transition-all text-sm font-semibold"
                       >
                         <span className="w-2.5 h-2.5 rounded-full bg-purple-500"></span>

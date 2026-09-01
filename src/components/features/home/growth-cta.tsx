@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { 
-  Rocket, 
-  ArrowRight, 
   TrendingUp, 
   Users, 
   Zap, 
@@ -40,18 +38,16 @@ export default function GrowthCta() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
                 href="/register"
-                className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold px-8 py-4 rounded-[10px] transition-all shadow-[0_10px_20px_rgba(99,102,241,0.3)] hover:-translate-y-1 w-full sm:w-auto text-center border border-indigo-500 flex items-center justify-center gap-2"
+                className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold px-8 py-3 rounded-[10px] transition-all shadow-[0_10px_20px_rgba(99,102,241,0.3)] hover:-translate-y-0.5 w-full sm:w-auto text-center border border-indigo-500 inline-flex items-center justify-center"
               >
-                <Rocket size={18} />
                 <span>Create Free Account</span>
               </Link>
 
               <Link
                 href="/listings"
-                className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-8 py-4 rounded-[10px] shadow-xs border border-slate-200 transition-all hover:border-slate-300 hover:-translate-y-1 w-full sm:w-auto text-center flex items-center justify-center gap-2"
+                className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-8 py-3 rounded-[10px] shadow-xs border border-slate-200 transition-all hover:border-slate-300 hover:-translate-y-0.5 w-full sm:w-auto text-center inline-flex items-center justify-center"
               >
                 <span>Browse Listings</span>
-                <ArrowRight size={18} />
               </Link>
             </div>
           </div>
