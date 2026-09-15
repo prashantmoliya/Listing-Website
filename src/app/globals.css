@@ -170,6 +170,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-accordion-collapse: accordion-collapse 200ms ease-out;
+  --animate-accordion-expand: accordion-expand 200ms ease-out;
 }
 
 :root {
@@ -189,7 +191,7 @@
   --accent: #d946ef;
   --accent-foreground: #ffffff;
   --saffron: #f97316;
-  --destructive: #ef4444;
+  --destructive: #ff0000;
   --border: #e2e8f0;
   --input: #e2e8f0;
   --ring: #6366f1;
@@ -228,7 +230,7 @@
   --accent: #d946ef;
   --accent-foreground: #ffffff;
   --saffron: #f97316;
-  --destructive: #ef4444;
+  --destructive: #ff0000;
   --border: #334155;
   --input: #334155;
   --ring: #6366f1;
@@ -269,6 +271,24 @@
 /* ==========================================================================
    Animations & Utilities
    ========================================================================== */
+@keyframes accordion-collapse {
+  from {
+    height: var(--accordion-panel-height, auto);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes accordion-expand {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--accordion-panel-height, auto);
+  }
+}
+
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
