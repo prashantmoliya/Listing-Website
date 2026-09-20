@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Send, CheckCircle2 } from "lucide-react";
 import { InputWithLabel, SelectWithLabel, TextareaWithLabel } from "@/components/common";
 import { Button } from "@/components/ui/button";
-import { contactSchema, type ContactFormValues } from "@/schemas";
+import { contactFormSchema, type ContactFormValues } from "@/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Send } from "lucide-react";
+import { Controller, useForm } from "react-hook-form";
 
 const subjectOptions = [
   { value: "General Inquiry", label: "General Inquiry" },
@@ -18,7 +17,6 @@ const subjectOptions = [
 ];
 
 export function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const {
     control,
@@ -26,7 +24,7 @@ export function ContactForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -38,7 +36,6 @@ export function ContactForm() {
   const onSubmit = async (_data: ContactFormValues) => {
     // Simulate network submission
     await new Promise((resolve) => setTimeout(resolve, 800));
-    setIsSubmitted(true);
     reset();
   };
 
@@ -48,27 +45,6 @@ export function ContactForm() {
         Send us a message
       </h2>
 
-      {isSubmitted ? (
-        <div className="rounded-2xl bg-emerald-50 border border-emerald-200/80 p-6 text-center space-y-3">
-          <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-            <CheckCircle2 size={26} />
-          </div>
-          <h3 className="text-lg font-bold text-emerald-900">
-            Thank you for reaching out!
-          </h3>
-          <p className="text-emerald-700 text-sm max-w-md mx-auto leading-relaxed">
-            Your message has been sent successfully. Our team will review your
-            inquiry and get back to you within 24 hours.
-          </p>
-          <button
-            type="button"
-            onClick={() => setIsSubmitted(false)}
-            className="mt-2 text-xs font-bold text-emerald-800 hover:text-emerald-950 underline underline-offset-4"
-          >
-            Send another message
-          </button>
-        </div>
-      ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Row 1: Name and Email */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -141,14 +117,13 @@ export function ContactForm() {
               type="submit"
               disabled={isSubmitting}
               size="lg"
-              className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 shadow-md shadow-indigo-600/20 hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 shadow-md shadow-indigo-600/20 hover:shadow-lg hover:-translate-y-0.5 h-11"
             >
               <Send size={16} />
               <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
             </Button>
           </div>
         </form>
-      )}
     </div>
   );
 }

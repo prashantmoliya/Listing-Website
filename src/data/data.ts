@@ -7,6 +7,25 @@ export interface CategoryItem {
   count?: string | null;
 }
 
+export interface ReviewItem {
+  id: string;
+  name: string;
+  date: string;
+  rating: number;
+  comment: string;
+}
+
+export interface BusinessHourItem {
+  day: string;
+  hours: string;
+  isClosed?: boolean;
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface ListingItem {
   id: string;
   name: string;
@@ -26,6 +45,23 @@ export interface ListingItem {
   image: string;
   description: string;
   tags: string[];
+  // Extended details
+  logo?: string;
+  email?: string;
+  whatsapp?: string;
+  established?: string;
+  employees?: string;
+  listedDate?: string;
+  socialLinks?: {
+    facebook?: string;
+    instagram?: string;
+    linkedin?: string;
+    youtube?: string;
+  };
+  gallery?: string[];
+  businessHours?: BusinessHourItem[];
+  reviews?: ReviewItem[];
+  faqs?: FAQItem[];
 }
 
 export interface CityItem {
@@ -376,3 +412,332 @@ export const recentListings: ListingItem[] = [
     tags: ["Weekend Getaway", "Eco Resort", "Pool"],
   },
 ];
+
+export const kryptonEducationListing: ListingItem = {
+  id: "krypton-education-indore",
+  name: "Krypton Education",
+  slug: "krypton-education-indore",
+  category: "Education",
+  categorySlug: "education",
+  rating: 5.0,
+  reviewsCount: 12,
+  views: 273,
+  verified: true,
+  featured: true,
+  address: "4nd Floor, Shreevardhan Complex, RNT Marg, , Indore, Madhya Pradesh - 452001",
+  city: "Indore",
+  phone: "+919575933658",
+  whatsapp: "+919575933658",
+  email: "kryptonedu@gmail.com",
+  website: "https://kryptoneducation.com",
+  image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop&q=80",
+  description: "Krypton Education, Indore is a dedicated finance education institute offering comprehensive coaching for CFA Levels I, II, and III, helping students and aspiring finance professionals build strong foundations for successful careers in global finance. Located at RNT Marg, Indore, the institute focuses on conceptual clarity, exam-oriented preparation, practical understanding, and consistent student support.\n\nUnder the mentorship of Vishal Ramchandani, CFA, an experienced finance educator with over 17 years of teaching experience, Krypton Education brings extensive expertise across CFA, CA, and CS education. The institute has helped hundreds of students strengthen their financial knowledge and move closer to their professional goals.\n\nKrypton Education combines structured classroom learning with flexible recorded lectures, comprehensive hard-copy notes, chapter-wise assessments, and mock tests. Its learning approach emphasizes understanding concepts rather than relying solely on memorization, enabling students to develop a stronger grasp of finance and investment-related subjects.\n\nFrom CFA Level I fundamentals to advanced Level II and Level III preparation, students receive guidance designed around systematic learning, regular practice, revision, and exam-focused preparation. With experienced mentorship and a student-centric approach, Krypton Education aims to make CFA preparation more structured, focused, and accessible.",
+  tags: ["Education", "Accounting", "Education Services", "Coaching Centers"],
+  established: "2020",
+  employees: "1-5",
+  listedDate: "28/5/2026",
+  socialLinks: {
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com",
+    linkedin: "https://linkedin.com",
+    youtube: "https://youtube.com",
+  },
+  businessHours: [
+    { day: "Monday", hours: "09:00 - 17:00" },
+    { day: "Tuesday", hours: "09:00 - 17:00" },
+    { day: "Wednesday", hours: "09:00 - 17:00" },
+    { day: "Thursday", hours: "09:00 - 17:00" },
+    { day: "Friday", hours: "09:00 - 17:00" },
+    { day: "Saturday", hours: "CLOSED", isClosed: true },
+    { day: "Sunday", hours: "CLOSED", isClosed: true },
+  ],
+  gallery: [
+    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=80",
+  ],
+  reviews: [
+    {
+      id: "rev-1",
+      name: "Latika Tripathi",
+      date: "8 September 2026",
+      rating: 5,
+      comment: "Vishal Sir Lectures is very helpful for concept clearing. I found Krypton Education as one of the best CFA Coaching in Indore",
+    },
+    {
+      id: "rev-2",
+      name: "Lalit Panday",
+      date: "6 September 2026",
+      rating: 5,
+      comment: "Excellent CFA coaching in Indore. Highly recommended!",
+    },
+    {
+      id: "rev-3",
+      name: "Trisha Tripathi",
+      date: "4 September 2026",
+      rating: 5,
+      comment: "I'm happy with the classes and overall guidance. Good choice for CFA coaching.",
+    },
+    {
+      id: "rev-4",
+      name: "Gouri Nathik",
+      date: "30 August 2026",
+      rating: 5,
+      comment: "Good online classes and clear explanations.",
+    },
+    {
+      id: "rev-5",
+      name: "Vishal Ramchandani",
+      date: "24 August 2026",
+      rating: 5,
+      comment: "Best CFA Online Classes with recorded lectures.",
+    },
+    {
+      id: "rev-6",
+      name: "Priya Sharma",
+      date: "18 August 2026",
+      rating: 5,
+      comment: "The study material and test series are well-structured and up to date with the latest CFA curriculum.",
+    },
+    {
+      id: "rev-7",
+      name: "Rahul Verma",
+      date: "10 August 2026",
+      rating: 5,
+      comment: "Doubt solving sessions are prompt and Vishal sir personally guides students through complex numericals.",
+    },
+    {
+      id: "rev-8",
+      name: "Ananya Mehta",
+      date: "2 August 2026",
+      rating: 5,
+      comment: "Cleared my CFA Level 1 in the first attempt thanks to the structured mock exams and revision notes.",
+    },
+    {
+      id: "rev-9",
+      name: "Rohan Joshi",
+      date: "22 July 2026",
+      rating: 5,
+      comment: "Superb conceptual clarity on financial reporting and portfolio management modules.",
+    },
+    {
+      id: "rev-10",
+      name: "Sneha Patel",
+      date: "15 July 2026",
+      rating: 5,
+      comment: "Highly recommend Krypton Education to anyone serious about clearing CFA in Madhya Pradesh.",
+    },
+    {
+      id: "rev-11",
+      name: "Aditya Kulkarni",
+      date: "5 July 2026",
+      rating: 5,
+      comment: "Both offline batches in Indore and recorded lecture access are top-notch.",
+    },
+    {
+      id: "rev-12",
+      name: "Neha Agrawal",
+      date: "28 June 2026",
+      rating: 5,
+      comment: "The personalized mentorship and exam strategies made all the difference in my preparation.",
+    },
+  ],
+  faqs: [
+    {
+      question: "What is Krypton Education?",
+      answer: "Krypton Education is a premier finance education institute based in Indore, specializing in comprehensive coaching for CFA (Chartered Financial Analyst) Levels I, II, and III.",
+    },
+    {
+      question: "Where is Krypton Education located?",
+      answer: "Krypton Education is located at 4nd Floor, Shreevardhan Complex, RNT Marg, Indore, Madhya Pradesh - 452001.",
+    },
+    {
+      question: "How can I contact Krypton Education?",
+      answer: "You can reach Krypton Education by calling +91 9575933658, emailing kryptonedu@gmail.com, or visiting their official website at https://kryptoneducation.com.",
+    },
+    {
+      question: "What are the working hours of Krypton Education?",
+      answer: "Krypton Education is open Monday to Friday from 09:00 AM to 05:00 PM. The institute remains closed on Saturdays and Sundays.",
+    },
+    {
+      question: "Does Krypton Education have a website?",
+      answer: "Yes, you can visit their official portal at https://kryptoneducation.com for course details, batch schedules, and fee structures.",
+    },
+    {
+      question: "When was Krypton Education established?",
+      answer: "Krypton Education was established in the year 2020.",
+    },
+    {
+      question: "Can I message Krypton Education on WhatsApp?",
+      answer: "Yes, WhatsApp support is available on +91 9575933658 for admissions and student queries.",
+    },
+    {
+      question: "Is Krypton Education a verified business?",
+      answer: "Yes, Krypton Education is a 100% verified and featured educational institute on IndianListingBucket.",
+    },
+    {
+      question: "What categories does Krypton Education operate in?",
+      answer: "Krypton Education operates under Education, Accounting, Education Services, and Coaching Centers.",
+    },
+    {
+      question: "Does Krypton Education have good reviews?",
+      answer: "Yes, Krypton Education holds a pristine 5.0 out of 5.0 rating with 12 positive student reviews praising the mentorship of Vishal Ramchandani, CFA.",
+    },
+  ],
+};
+
+export const allListings: ListingItem[] = [
+  kryptonEducationListing,
+  ...featuredListings,
+  ...recentListings,
+  {
+    id: "l-5",
+    name: "Royal Heritage Jewellers & Diamond Solitaires",
+    slug: "royal-heritage-jewellers",
+    category: "Shopping",
+    categorySlug: "shopping",
+    rating: 4.9,
+    reviewsCount: 310,
+    views: 2450,
+    verified: true,
+    featured: true,
+    address: "Zaveri Bazaar, Kalbadevi",
+    city: "Mumbai",
+    phone: "+91 22345 67891",
+    website: "https://royalheritagejewels.example.com",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&auto=format&fit=crop&q=80",
+    description: "Certified Hallmark gold, natural diamond solitaires, bridal polki jewellery, and custom bridal ornaments with transparent buyback policies.",
+    tags: ["Diamond Jewellery", "Hallmark Gold", "Bridal Sets"],
+  },
+  {
+    id: "l-6",
+    name: "Autocare Elite Multi-Brand Car Service Center",
+    slug: "autocare-elite-service",
+    category: "Automotive",
+    categorySlug: "automotive",
+    rating: 4.7,
+    reviewsCount: 154,
+    views: 1280,
+    verified: true,
+    featured: false,
+    address: "Okhla Industrial Area Phase 2",
+    city: "Delhi",
+    phone: "+91 11456 78912",
+    image: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=600&auto=format&fit=crop&q=80",
+    description: "Full computerized diagnostics, periodic car maintenance, denting, painting, AC service, wheel alignment, and genuine spares.",
+    tags: ["Car Service", "Periodic Maintenance", "Denting Painting"],
+  },
+  {
+    id: "l-7",
+    name: "LexJuris Advocates & Corporate Legal Advisors",
+    slug: "lexjuris-advocates-legal",
+    category: "Legal & Finance",
+    categorySlug: "legal-finance",
+    rating: 4.8,
+    reviewsCount: 76,
+    views: 890,
+    verified: true,
+    featured: false,
+    address: "Nariman Point, Marine Drive",
+    city: "Mumbai",
+    phone: "+91 22876 54321",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=80",
+    description: "High Court & Supreme Court corporate legal counsel, trademark registration, contract drafting, dispute resolution, and GST tax advisory.",
+    tags: ["Corporate Law", "Tax Advisory", "Trademark"],
+  },
+  {
+    id: "l-8",
+    name: "FitPulse 24/7 Gym & Crossfit Fitness Hub",
+    slug: "fitpulse-gym-fitness",
+    category: "Sports & Fitness",
+    categorySlug: "sports-fitness",
+    rating: 4.9,
+    reviewsCount: 220,
+    views: 2190,
+    verified: true,
+    featured: true,
+    address: "Koramangala 4th Block, 80 Feet Road",
+    city: "Bangalore",
+    phone: "+91 80987 65432",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80",
+    description: "Premium state-of-the-art gym with imported equipment, certified personal trainers, CrossFit arena, steam rooms, and nutrition counselling.",
+    tags: ["CrossFit", "Personal Training", "Cardio Arena"],
+  },
+  {
+    id: "l-9",
+    name: "KalaKriti Ethnic Silks & Designer Lehengas",
+    slug: "kalakriti-ethnic-silks",
+    category: "Clothing & Fashion",
+    categorySlug: "clothing-fashion",
+    rating: 4.8,
+    reviewsCount: 195,
+    views: 1740,
+    verified: true,
+    featured: false,
+    address: "Ring Road Textile Market",
+    city: "Surat",
+    phone: "+91 26123 45678",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80",
+    description: "Exclusive pure Banarasi, Kanjeevaram silk sarees, bespoke bridal lehengas, and hand-embroidered party wear direct from weavers.",
+    tags: ["Silk Sarees", "Bridal Lehengas", "Ethnic Wear"],
+  },
+  {
+    id: "l-10",
+    name: "GrowthWave Digital Marketing & SEO Agency",
+    slug: "growthwave-digital-marketing",
+    category: "Advertising & Marketing",
+    categorySlug: "advertising-marketing",
+    rating: 4.9,
+    reviewsCount: 112,
+    views: 1350,
+    verified: true,
+    featured: false,
+    address: "Viman Nagar, Central Avenue",
+    city: "Pune",
+    phone: "+91 20876 54321",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
+    description: "ROI-driven digital marketing, Google PPC advertising, meta ads management, search engine optimization, and lead generation for Indian SMEs.",
+    tags: ["Google Ads", "SEO Services", "Performance Marketing"],
+  },
+  {
+    id: "l-11",
+    name: "BuildCraft Architects & Luxury Interior Designers",
+    slug: "buildcraft-architects-interiors",
+    category: "Construction",
+    categorySlug: "construction",
+    rating: 4.8,
+    reviewsCount: 88,
+    views: 1120,
+    verified: true,
+    featured: true,
+    address: "Banjara Hills Road No. 12",
+    city: "Hyderabad",
+    phone: "+91 40789 01234",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop&q=80",
+    description: "End-to-end residential interior turnkeys, modular kitchens, 3D architectural rendering, commercial workspace design, and civil renovation.",
+    tags: ["Interior Design", "Modular Kitchen", "Turnkey Projects"],
+  },
+  {
+    id: "l-12",
+    name: "NatureNook Organic Landscape & Plant Nursery",
+    slug: "naturenook-organic-nursery",
+    category: "Home & Garden",
+    categorySlug: "home-garden",
+    rating: 4.7,
+    reviewsCount: 64,
+    views: 820,
+    verified: false,
+    featured: false,
+    address: "Thaltej Cross Roads, SG Road",
+    city: "Ahmedabad",
+    phone: "+91 79876 54321",
+    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&auto=format&fit=crop&q=80",
+    description: "Exotic indoor plants, flowering shrubs, terrace garden setup, vertical walls, organic fertilizers, and home gardening consultations.",
+    tags: ["Indoor Plants", "Terrace Gardening", "Landscape"],
+  },
+];
+
+export function getListingBySlug(slug: string): ListingItem | undefined {
+  return allListings.find((item) => item.slug === slug);
+}

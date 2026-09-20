@@ -9,7 +9,8 @@ import {
   Phone, 
   Clock, 
   Eye, 
-  ShieldCheck 
+  ShieldCheck,
+  Crown
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -39,13 +40,18 @@ export function ListingCard({ item, className }: ListingCardProps) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          {item.verified && (
-            <div className="absolute top-3 left-3 z-10">
-              <Badge variant="emerald" className="bg-emerald-500 text-white border-0 text-xs font-bold flex items-center gap-1 shadow-sm rounded-full px-2.5 py-1">
-                <ShieldCheck size={14} /> Verified
+          <div className="absolute top-3 left-3 z-10 flex flex-wrap items-center gap-1.5">
+            {item.verified && (
+              <Badge variant="emerald" className="bg-emerald-500 hover:bg-emerald-500 text-white border-0 text-xs font-bold flex items-center gap-1 shadow-sm rounded-full px-2.5 py-1">
+                <ShieldCheck size={14} /> <span>Verified</span>
               </Badge>
-            </div>
-          )}
+            )}
+            {item.featured && (
+              <Badge className="bg-amber-400 hover:bg-amber-400 text-slate-950 border-0 text-xs font-bold flex items-center gap-1 shadow-sm rounded-full px-2.5 py-1">
+                <Crown size={14} className="fill-slate-950 text-slate-950" /> <span>Featured</span>
+              </Badge>
+            )}
+          </div>
           {item.isNew && (
             <div className="absolute top-3 right-3 z-10">
               <Badge variant="outline" className="bg-white/95 backdrop-blur-xs text-xs font-bold text-slate-800 shadow-xs flex items-center gap-1 rounded-full px-2.5 py-1 border-slate-200">

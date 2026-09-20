@@ -75,6 +75,7 @@ export function SelectWithLabel({
         onValueChange={(val) => onValueChange?.((val as string) ?? "")}
         disabled={disabled}
         required={required}
+        items={options}
       >
         <SelectTrigger
           id={id}
@@ -85,7 +86,15 @@ export function SelectWithLabel({
             triggerClassName
           )}
         >
-          <SelectValue placeholder={placeholder} />
+          <SelectValue placeholder={placeholder}>
+            {options
+              ? (val: any) => {
+                  if (!val) return placeholder;
+                  const match = options.find((o) => o.value === val);
+                  return match ? match.label : val;
+                }
+              : undefined}
+          </SelectValue>
         </SelectTrigger>
 
         <SelectPositioner>

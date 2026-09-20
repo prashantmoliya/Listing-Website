@@ -13,31 +13,22 @@ function SelectGroup({ ...props }: SelectPrimitive.Group.Props) {
 }
 
 function SelectValue({
+  className,
   placeholder,
+  children,
   ...props
 }: SelectPrimitive.Value.Props & {
   placeholder?: string;
 }) {
-  if (!placeholder) {
-    return <SelectPrimitive.Value data-slot="select-value" {...props} />;
-  }
-
   return (
     <SelectPrimitive.Value
-      render={(_, { value }) => {
-        if (value) {
-          return <SelectPrimitive.Value data-slot="select-value" {...props} />;
-        }
-
-        // Placeholder
-        return (
-          <span data-slot="select-value" className="text-muted-foreground">
-            {placeholder}
-          </span>
-        );
-      }}
+      data-slot="select-value"
+      placeholder={placeholder}
+      className={cn("data-[placeholder]:text-muted-foreground", className)}
       {...props}
-    />
+    >
+      {children}
+    </SelectPrimitive.Value>
   );
 }
 

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const contactSchema = z.object({
+export const contactFormSchema = z.object({
   name: z
     .string()
     .min(2, "Name must be at least 2 characters")
@@ -19,4 +19,4 @@ export const contactSchema = z.object({
     .max(2000, "Message must be less than 2000 characters"),
 });
 
-export type ContactFormValues = z.infer<typeof contactSchema>;
+export type ContactFormValues = z.infer<typeof contactFormSchema>;

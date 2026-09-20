@@ -72,7 +72,7 @@ const packages = [
     description:
       "Banner ads target local customers and help to build brand recognition immediately. Your banner appears across relevant pages reaching thousands of daily visitors.",
     buttonText: "Enquire About Banners",
-    buttonHref: "/contact",
+    buttonHref: "/advertise/banner-ads",
     buttonStyle: "bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-100 font-bold",
     checkBg: "bg-indigo-50 text-indigo-700",
     included: [
@@ -151,7 +151,7 @@ export function AdvertisePackages() {
 
                 {/* Price Display */}
                 <div className="flex items-baseline gap-1.5 mb-5">
-                  <span className="text-4xl sm:text-5xl font-black text-foreground tracking-tight">
+                  <span className="text-[36px] font-bold text-foreground tracking-tight leading-none">
                     {pkg.price}
                   </span>
                   <span className="text-slate-500 font-semibold text-sm">
