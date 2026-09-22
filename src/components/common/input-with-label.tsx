@@ -11,6 +11,7 @@ export interface InputWithLabelProps
   required?: boolean;
   containerClassName?: string;
   labelClassName?: string;
+  rightElement?: React.ReactNode;
 }
 
 export function InputWithLabel({
@@ -22,6 +23,7 @@ export function InputWithLabel({
   className,
   containerClassName,
   labelClassName,
+  rightElement,
   ...props
 }: InputWithLabelProps) {
   const generatedId = React.useId();
@@ -37,17 +39,25 @@ export function InputWithLabel({
       className={containerClassName}
       labelClassName={labelClassName}
     >
-      <Input
-        id={id}
-        required={required}
-        aria-invalid={!!error}
-        className={cn(
-          "w-full h-11 px-4 rounded-[10px] border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-indigo-500/20 focus-visible:border-indigo-600 text-sm font-medium transition-all",
-          error && "border-destructive focus-visible:ring-destructive/20",
-          className
+      <div className="relative w-full">
+        <Input
+          id={id}
+          required={required}
+          aria-invalid={!!error}
+          className={cn(
+            "w-full h-11 px-4 rounded-[10px] border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-indigo-500/20 focus-visible:border-indigo-600 text-sm font-medium transition-all",
+            rightElement && "pr-11",
+            error && "border-destructive focus-visible:ring-destructive/20",
+            className
+          )}
+          {...props}
+        />
+        {rightElement && (
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center">
+            {rightElement}
+          </div>
         )}
-        {...props}
-      />
+      </div>
     </FieldWrapper>
   );
 }
