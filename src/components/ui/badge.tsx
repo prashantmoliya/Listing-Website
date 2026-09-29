@@ -21,6 +21,8 @@ const badgeVariants = cva(
           "border-emerald-100 bg-emerald-50 text-emerald-700 hover:bg-emerald-100/80",
         amber:
           "border-amber-100 bg-amber-50 text-amber-700 hover:bg-amber-100/80",
+        rose:
+          "border-rose-100 bg-rose-50 text-rose-700 hover:bg-rose-100/80",
         muted:
           "border-slate-100 bg-slate-50 text-slate-600 hover:bg-slate-100",
       },

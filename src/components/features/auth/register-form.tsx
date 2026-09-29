@@ -42,7 +42,7 @@ export function RegisterForm() {
   const onSubmit = async (data: RegisterFormValues) => {
     // Simulate registration delay
     await new Promise((resolve) => setTimeout(resolve, 800));
-    router.push("/login");
+    router.push("/dashboard");
   };
 
   return (

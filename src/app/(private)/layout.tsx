@@ -1,11 +1,18 @@
-import { AppLayout } from "@/components/layout";
+import type { Metadata } from "next";
+import { DashboardLayout } from "@/components/layout/dashboard";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | IndianListingBucket Portal",
+    default: "Dashboard | IndianListingBucket",
+  },
+  description: "Manage your business listings, customer reviews, and inquiries.",
+};
 
 export default function PrivateLayout({
-    children
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return (
-        <AppLayout>{children}</AppLayout>
-    );
+  return <DashboardLayout>{children}</DashboardLayout>;
 }

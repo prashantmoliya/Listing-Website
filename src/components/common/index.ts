@@ -7,3 +7,6 @@ export * from "./input-with-label";
 export * from "./select-with-label";
 export * from "./field-wrapper";
 export * from "./textarea-with-label";
+export * from "./data-table";
+export * from "./popover-menu";
+export * from "./modal";

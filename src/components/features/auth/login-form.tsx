@@ -38,7 +38,7 @@ export function LoginForm() {
   const onSubmit = async (data: LoginFormValues) => {
     // Simulate authentication delay
     await new Promise((resolve) => setTimeout(resolve, 800));
-    router.push("/");
+    router.push("/dashboard");
   };
 
   return (
