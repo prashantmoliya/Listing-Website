@@ -57,6 +57,7 @@ export default function Footer() {
     { name: "Search Businesses", href: "/listings" },
     { name: "Advertise With Us", href: "/advertise" },
     { name: "About Us", href: "/about" },
+    { name: "Blog & Guides", href: "/blog" },
     { name: "Contact", href: "/contact" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },

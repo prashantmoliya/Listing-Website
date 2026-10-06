@@ -152,6 +152,13 @@ export default function Header() {
                 <span>Featured</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-extrabold">Hot</span>
               </Link>
+
+              <Link
+                href="/blog"
+                className="hover:text-indigo-600 transition-colors py-2"
+              >
+                Blog
+              </Link>
             </nav>
 
             {/* Right Side: Action Buttons + Mobile Menu Button */}
@@ -222,6 +229,13 @@ export default function Header() {
                   className="px-4 py-3 rounded-[10px] hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
                 >
                   Featured Listings
+                </Link>
+                <Link
+                  href="/blog"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-3 rounded-[10px] hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                >
+                  Blog &amp; Guides
                 </Link>
               </nav>
 
