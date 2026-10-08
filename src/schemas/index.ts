@@ -4,3 +4,4 @@ export * from "./login-form.schema";
 export * from "./register-form.schema";
 export * from "./forgot-password-form.schema";
 export * from "./reset-password-form.schema";
+export * from "./listing-inquiry-form.schema";

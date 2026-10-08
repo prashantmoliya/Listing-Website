@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { Phone, MessageSquare, Mail, Globe, ExternalLink } from "lucide-react";
+import { Phone, MessageSquare, Mail, Globe, ExternalLink, Send, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import type { ListingItem } from "@/data";
 
 interface ListingContactCardsProps {
   listing: ListingItem;
+  onOpenInquiry?: () => void;
 }
 
-export function ListingContactCards({ listing }: ListingContactCardsProps) {
+export function ListingContactCards({ listing, onOpenInquiry }: ListingContactCardsProps) {
   const cleanPhone = listing.phone.replace(/[^0-9+]/g, "");
   const cleanWhatsapp = (listing.whatsapp || listing.phone).replace(/[^0-9]/g, "");
   const email = listing.email || `contact@${listing.slug.replace(/-/g, "")}.com`;
@@ -14,9 +16,43 @@ export function ListingContactCards({ listing }: ListingContactCardsProps) {
 
   return (
     <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] space-y-4">
-      <h3 className="font-bold text-lg text-slate-900 tracking-tight">
-        Contact Business
-      </h3>
+      <div className="flex items-center justify-between gap-3">
+        <h3 className="font-bold text-lg text-slate-900 tracking-tight">
+          Contact Business
+        </h3>
+      </div>
+
+      {/* Service Partner Inquiry Banner */}
+      {listing.providesService && onOpenInquiry && (
+        <div className="p-4 rounded-2xl bg-gradient-to-r from-indigo-50/90 via-indigo-50/40 to-blue-50 border border-indigo-200/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Send size={17} />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-bold text-indigo-950 uppercase tracking-wide">
+                  Partner Service Inquiry
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-indigo-700 bg-indigo-100/90 px-2 py-0.5 rounded-md">
+                  <Sparkles size={10} /> Verified
+                </span>
+              </div>
+              <p className="text-xs text-slate-600 mt-0.5">
+                Submit an inquiry and {listing.name} will contact you directly with quotes & details.
+              </p>
+            </div>
+          </div>
+          <Button
+            type="button"
+            onClick={onOpenInquiry}
+            className="w-full sm:w-auto h-9.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shrink-0 shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-all"
+          >
+            <Send size={13} />
+            <span>Send Inquiry</span>
+          </Button>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         {/* Call Now */}

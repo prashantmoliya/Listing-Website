@@ -1,19 +1,20 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 import {
-  LayoutDashboard,
   Building,
   Building2,
-  PlusCircle,
-  Star,
-  MessageSquareText,
   Globe,
+  Inbox,
+  LayoutDashboard,
   LogOut,
+  MessageSquareText,
+  PlusCircle,
   Sparkles,
+  Star,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavItem {
   title: string;
@@ -38,6 +39,11 @@ const navItems: NavItem[] = [
     title: "Add Listing",
     href: "/dashboard/create-listing",
     icon: PlusCircle,
+  },
+  {
+    title: "Customer Inquiries",
+    href: "/dashboard/inquiries",
+    icon: Inbox,
   },
   {
     title: "Customer Reviews",

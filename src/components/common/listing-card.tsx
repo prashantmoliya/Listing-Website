@@ -6,13 +6,13 @@ import {
   ArrowRight, 
   Star, 
   MapPin, 
-  Phone, 
   Clock, 
   Eye, 
   ShieldCheck,
   Crown
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { ListingItem } from "@/data";
 
@@ -120,22 +120,15 @@ export function ListingCard({ item, className }: ListingCardProps) {
           </div>
         )}
 
-        <div className="flex items-center gap-2">
-          <Link
-            href={`tel:${item.phone.replace(/\s+/g, "")}`}
-            className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[10px] bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-colors"
+        <Link href={`/listings/${item.slug}`} className="w-full block">
+          <Button
+            type="button"
+            className="w-full h-8.5 rounded-[10px] bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all group/btn"
           >
-            <Phone size={12} />
-            <span>Call</span>
-          </Link>
-          <Link
-            href={`/listings/${item.slug}`}
-            className="inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-[10px] border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition-colors"
-          >
-            <span>Details</span>
-            <ArrowRight size={12} />
-          </Link>
-        </div>
+            <span>View Details</span>
+            <ArrowRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+          </Button>
+        </Link>
       </div>
     </div>
   );

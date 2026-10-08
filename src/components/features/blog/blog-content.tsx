@@ -97,15 +97,12 @@ export function BlogContent() {
           <div className="space-y-8 sm:space-y-10">
             
             {/* Category Filter Pills Bar */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+            <div className="border-b border-slate-100 pb-5">
               <BlogCategories
                 categories={blogCategories}
                 activeCategory={activeCategory}
                 onSelectCategory={handleCategorySelect}
               />
-              <div className="text-xs font-semibold text-slate-400 shrink-0">
-                Showing {filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"}
-              </div>
             </div>
 
             {/* Featured Post Banner (full width) */}
@@ -138,7 +135,7 @@ export function BlogContent() {
                 </>
               ) : (
                 /* Empty state */
-                <div className="bg-slate-50 rounded-3xl p-10 sm:p-14 text-center border border-slate-200/80 space-y-4 max-w-xl mx-auto">
+                <div className="bg-slate-50 rounded-3xl p-10 sm:p-14 text-center border border-slate-200/80 space-y-4 mx-auto">
                   <div className="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center mx-auto">
                     <BookOpen className="w-7 h-7" />
                   </div>

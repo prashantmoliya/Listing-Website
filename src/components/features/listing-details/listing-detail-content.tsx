@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Container, AppBreadcrumb } from "@/components/common";
 import { Button } from "@/components/ui/button";
@@ -14,6 +17,7 @@ import { ListingReviews } from "./listing-reviews";
 import { ListingFAQs } from "./listing-faqs";
 import { ListingSimilarBusinesses } from "./listing-similar-businesses";
 import { ListingDetailSidebar } from "./listing-detail-sidebar";
+import { ListingInquiryModal } from "./listing-inquiry-modal";
 import { ArrowLeft, SearchX } from "lucide-react";
 
 interface ListingDetailContentProps {
@@ -21,6 +25,7 @@ interface ListingDetailContentProps {
 }
 
 export function ListingDetailContent({ slug }: ListingDetailContentProps) {
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const decodedSlug = decodeURIComponent(slug).toLowerCase().trim().replace(/\s+/g, "-");
   const listing = getListingBySlug(slug) || getListingBySlug(decodedSlug);
 
@@ -75,7 +80,10 @@ export function ListingDetailContent({ slug }: ListingDetailContentProps) {
             <ListingDetailHeader listing={listing} />
 
             {/* 2. Contact Cards & Social Links */}
-            <ListingContactCards listing={listing} />
+            <ListingContactCards 
+              listing={listing} 
+              onOpenInquiry={() => setIsInquiryOpen(true)} 
+            />
 
             {/* 3. Quick Info (Established, Employees) */}
             <ListingQuickInfo listing={listing} />
@@ -104,7 +112,10 @@ export function ListingDetailContent({ slug }: ListingDetailContentProps) {
 
           {/* Right Sidebar Column (approx. 32% width on desktop) */}
           <div className="w-full lg:w-[30%] lg:sticky lg:top-24">
-            <ListingDetailSidebar listing={listing} />
+            <ListingDetailSidebar 
+              listing={listing} 
+              onOpenInquiry={() => setIsInquiryOpen(true)} 
+            />
           </div>
         </div>
 
@@ -113,6 +124,15 @@ export function ListingDetailContent({ slug }: ListingDetailContentProps) {
           <ListingSimilarBusinesses currentListing={listing} />
         </div>
       </Container>
+
+      {/* 12. Customer Inquiry Modal (Available only for service partner listings) */}
+      {listing.providesService && (
+        <ListingInquiryModal
+          listing={listing}
+          open={isInquiryOpen}
+          onOpenChange={setIsInquiryOpen}
+        />
+      )}
     </div>
   );
 }

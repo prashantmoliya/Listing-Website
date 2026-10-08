@@ -80,6 +80,7 @@ export function Modal({
 
       <DialogContent
         className={cn(
+          "w-[calc(100%-1rem)] max-w-[calc(100%-1rem)] sm:w-full",
           maxWidth,
           "p-0 overflow-hidden border-none shadow-menu rounded-md outline-none",
           className
@@ -90,27 +91,27 @@ export function Modal({
       >
         <ContentWrapper
           onSubmit={asForm || onSubmit ? onSubmit : undefined}
-          className="flex flex-col max-h-[85vh]"
+          className="flex flex-col max-h-[92vh] sm:max-h-[85vh] min-w-0"
         >
           {!displayTitle && (
             <DialogTitle className="sr-only">Modal Content</DialogTitle>
           )}
 
           {(displayTitle || displayDescription || headerIcon) && (
-            <DialogHeader className={cn("p-6 pb-4 flex flex-row items-center gap-4 text-left border-b bg-muted/10", headerClassName)}>
+            <DialogHeader className={cn("p-3.5 sm:p-6 pb-2.5 sm:pb-4 pr-10 sm:pr-14 flex flex-row items-center gap-2.5 sm:gap-4 text-left border-b bg-muted/10 min-w-0", headerClassName)}>
               {headerIcon && (
-                <div className="p-3 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0 border border-primary/5">
+                <div className="p-1.5 sm:p-3 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0 border border-primary/5">
                   {headerIcon}
                 </div>
               )}
-              <div className="flex flex-col gap-1 flex-1">
+              <div className="flex flex-col gap-0.5 sm:gap-1 flex-1 min-w-0">
                 {displayTitle && (
-                  <DialogTitle className="text-xl font-bold tracking-normal text-foreground">
+                  <DialogTitle className="text-sm sm:text-xl font-bold tracking-normal text-foreground leading-tight">
                     {displayTitle}
                   </DialogTitle>
                 )}
                 {displayDescription && (
-                  <DialogDescription className="text-sm font-medium text-muted-foreground/80 leading-snug">
+                  <DialogDescription className="text-xs sm:text-sm font-medium text-muted-foreground/80 leading-snug line-clamp-2 sm:line-clamp-none">
                     {displayDescription}
                   </DialogDescription>
                 )}
@@ -119,14 +120,14 @@ export function Modal({
           )}
 
           <div className={cn(
-            "overflow-y-auto custom-scrollbar",
-            !noPadding && "p-6"
+            "overflow-y-auto custom-scrollbar min-w-0",
+            !noPadding && "p-3 sm:p-6"
           )}>
             {children}
           </div>
 
           {displayFooter && (
-            <DialogFooter className={cn("p-5 pt-3 border-t bg-muted/5 gap-3 sm:gap-0", footerClassName)}>
+            <DialogFooter className={cn("p-3 sm:p-5 pt-2.5 border-t bg-muted/5 gap-2 sm:gap-0", footerClassName)}>
               {displayFooter}
             </DialogFooter>
           )}

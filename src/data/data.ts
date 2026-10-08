@@ -62,6 +62,8 @@ export interface ListingItem {
   businessHours?: BusinessHourItem[];
   reviews?: ReviewItem[];
   faqs?: FAQItem[];
+  providesService?: boolean;
+  servicesOffered?: string[];
 }
 
 export interface CityItem {
@@ -274,6 +276,13 @@ export const featuredListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=80",
     description: "Leading enterprise web and mobile app development company providing custom software, cloud architecture, and AI engineering services across India.",
     tags: ["Web Development", "Cloud Solutions", "Mobile Apps"],
+    providesService: true,
+    servicesOffered: [
+      "Custom Web & Portal Development",
+      "Cloud Architecture & AWS/Azure DevOps",
+      "Native & Cross-Platform Mobile Apps",
+      "Enterprise AI & Generative AI Solutions",
+    ],
   },
   {
     id: "l-2",
@@ -293,6 +302,7 @@ export const featuredListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80",
     description: "Authentic North Indian & Mughlai fine dining destination. Luxury banquets available for corporate dinners, birthdays, and wedding receptions.",
     tags: ["Fine Dining", "North Indian", "Banquets"],
+    providesService: false,
   },
   {
     id: "l-3",
@@ -312,6 +322,13 @@ export const featuredListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&auto=format&fit=crop&q=80",
     description: "State of the art dental care with painless implants, laser teeth whitening, orthodontic aligners, and family cosmetic dental treatments.",
     tags: ["Dental Implants", "Orthodontics", "Cosmetic"],
+    providesService: true,
+    servicesOffered: [
+      "Dental Implants & Laser Surgery",
+      "Orthodontic Aligners & Braces",
+      "Root Canal Treatment (RCT)",
+      "Cosmetic Smile Makeover & Whitening",
+    ],
   },
   {
     id: "l-4",
@@ -331,6 +348,13 @@ export const featuredListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop&q=80",
     description: "Verified residential and commercial property advisory in Hyderabad. RERA-approved luxury villas, 2/3 BHK apartments, and commercial office spaces.",
     tags: ["Luxury Villas", "Commercial", "RERA Approved"],
+    providesService: true,
+    servicesOffered: [
+      "Commercial Office Space Leasing",
+      "Luxury Villa Buying Advisory",
+      "Legal Property Due Diligence",
+      "Home Loan & Documentation Support",
+    ],
   },
 ];
 
@@ -353,6 +377,13 @@ export const recentListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&auto=format&fit=crop&q=80",
     description: "Modern hair styling, bridal makeup, organic facials, hair spa, and professional grooming studio in Pune.",
     tags: ["Hair Spa", "Bridal Makeup", "Grooming"],
+    providesService: true,
+    servicesOffered: [
+      "Bridal Makeup & Pre-Bridal Package",
+      "Keratin & Hair Spa Treatment",
+      "Organic Skin Care & Facials",
+      "Professional Hair Cutting & Color",
+    ],
   },
   {
     id: "r-2",
@@ -372,6 +403,13 @@ export const recentListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80",
     description: "Premier coaching institute for engineering & medical entrance exams with top faculty, test series, and study material.",
     tags: ["IIT-JEE", "NEET", "Board Prep"],
+    providesService: true,
+    servicesOffered: [
+      "IIT-JEE 2-Year Comprehensive Program",
+      "NEET Medical Coaching & Mock Tests",
+      "Class 11 & 12 Foundation Course",
+      "Personalized 1-on-1 Doubt Sessions",
+    ],
   },
   {
     id: "r-3",
@@ -391,6 +429,13 @@ export const recentListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80",
     description: "Reliable household relocation, office shifting, vehicle transport, and safe warehouse storage with all-India coverage.",
     tags: ["Relocation", "Shifting", "Warehousing"],
+    providesService: true,
+    servicesOffered: [
+      "Household Relocation (Door-to-Door)",
+      "Corporate Office & IT Asset Shifting",
+      "Car & Two-Wheeler Transportation",
+      "Secure Warehousing & Inventory Storage",
+    ],
   },
   {
     id: "r-4",
@@ -410,6 +455,7 @@ export const recentListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80",
     description: "Peaceful nature weekend getaway resort with swimming pool, adventure sports, organic dining, and cottages.",
     tags: ["Weekend Getaway", "Eco Resort", "Pool"],
+    providesService: false,
   },
 ];
 
@@ -433,6 +479,14 @@ export const kryptonEducationListing: ListingItem = {
   image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop&q=80",
   description: "Krypton Education, Indore is a dedicated finance education institute offering comprehensive coaching for CFA Levels I, II, and III, helping students and aspiring finance professionals build strong foundations for successful careers in global finance. Located at RNT Marg, Indore, the institute focuses on conceptual clarity, exam-oriented preparation, practical understanding, and consistent student support.\n\nUnder the mentorship of Vishal Ramchandani, CFA, an experienced finance educator with over 17 years of teaching experience, Krypton Education brings extensive expertise across CFA, CA, and CS education. The institute has helped hundreds of students strengthen their financial knowledge and move closer to their professional goals.\n\nKrypton Education combines structured classroom learning with flexible recorded lectures, comprehensive hard-copy notes, chapter-wise assessments, and mock tests. Its learning approach emphasizes understanding concepts rather than relying solely on memorization, enabling students to develop a stronger grasp of finance and investment-related subjects.\n\nFrom CFA Level I fundamentals to advanced Level II and Level III preparation, students receive guidance designed around systematic learning, regular practice, revision, and exam-focused preparation. With experienced mentorship and a student-centric approach, Krypton Education aims to make CFA preparation more structured, focused, and accessible.",
   tags: ["Education", "Accounting", "Education Services", "Coaching Centers"],
+  providesService: true,
+  servicesOffered: [
+    "CFA Level 1 Comprehensive Coaching",
+    "CFA Level 2 Advanced Preparation",
+    "CFA Level 3 Mentorship Program",
+    "Financial Modeling & Valuation Masterclass",
+    "Career Counseling & Interview Prep",
+  ],
   established: "2020",
   employees: "1-5",
   listedDate: "28/5/2026",
@@ -609,6 +663,7 @@ export const allListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&auto=format&fit=crop&q=80",
     description: "Certified Hallmark gold, natural diamond solitaires, bridal polki jewellery, and custom bridal ornaments with transparent buyback policies.",
     tags: ["Diamond Jewellery", "Hallmark Gold", "Bridal Sets"],
+    providesService: false,
   },
   {
     id: "l-6",
@@ -627,6 +682,13 @@ export const allListings: ListingItem[] = [
     image: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=600&auto=format&fit=crop&q=80",
     description: "Full computerized diagnostics, periodic car maintenance, denting, painting, AC service, wheel alignment, and genuine spares.",
     tags: ["Car Service", "Periodic Maintenance", "Denting Painting"],
+    providesService: true,
+    servicesOffered: [
+      "Full Periodic Car Maintenance",
+      "Computerized Engine Diagnostics",
+      "Car AC Repair & Gas Refill",
+      "Denting, Painting & Ceramic Coating",
+    ],
   },
   {
     id: "l-7",
