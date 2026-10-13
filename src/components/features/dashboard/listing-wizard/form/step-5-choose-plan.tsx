@@ -121,6 +121,12 @@ export function Step5ChoosePlan({ data, onChange }: Step5ChoosePlanProps) {
                     </div>
                     <span>No business highlighting in search results.</span>
                   </li>
+                  <li className="flex items-start gap-2.5 text-slate-400">
+                    <div className="w-4 h-4 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <X size={11} strokeWidth={3} />
+                    </div>
+                    <span>No Services & Products catalog (Featured only).</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -252,6 +258,14 @@ export function Step5ChoosePlan({ data, onChange }: Step5ChoosePlanProps) {
                       <Check size={11} strokeWidth={3} />
                     </div>
                     <span>Business highlighting in search results.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5 text-slate-800 font-medium">
+                    <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-amber-100 text-amber-700">
+                      <Check size={11} strokeWidth={3} />
+                    </div>
+                    <span>
+                      <strong className="text-indigo-600 font-bold">Services & Products catalog</strong> with direct customer lead inquiries.
+                    </span>
                   </li>
                 </ul>
               </div>

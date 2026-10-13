@@ -25,6 +25,7 @@ import {
   AlertCircle,
   MoreVertical,
   Crown,
+  Briefcase,
 } from "lucide-react";
 import { type UserListingItem } from "@/data";
 
@@ -87,6 +88,23 @@ function ListingActionsCell({ listing, onDelete }: ListingActionsCellProps) {
               <span>Edit Listing</span>
             </Button>
           </Link>
+
+          {/* Services & Products (Featured Plan Only) */}
+          {listing.plan === "Featured" && (
+            <Link
+              href={`/dashboard/my-listings/${listing.id}/services-products`}
+              onClick={() => setMenuOpen(false)}
+            >
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start font-semibold gap-2 h-9 px-2 hover:bg-primary/10 hover:text-primary transition-all text-xs cursor-pointer"
+              >
+                <Briefcase className="size-4 text-indigo-600" />
+                <span>Services & Products</span>
+              </Button>
+            </Link>
+          )}
 
           {/* View Public Listing (if Approved) */}
           {isApproved && (
@@ -254,6 +272,46 @@ export function MyListingsTable({
             <Badge variant="muted" className="gap-1 font-semibold text-slate-600">
               <span>Free</span>
             </Badge>
+          );
+        },
+      },
+
+      // 4. Services & Products Column (Featured Plan Only: icon button, Free Plan: -)
+      {
+        id: "servicesAndProducts",
+        header: "Services & Products",
+        cell: ({ row }) => {
+          const listing = row.original;
+          const isFeatured = listing.plan === "Featured";
+          const count = listing.servicesAndProducts?.length ?? 0;
+
+          if (!isFeatured) {
+            return (
+              <div
+                className="flex items-center min-w-[130px]"
+                title="Services & Products catalog is available on Featured Plan only"
+              >
+                <span className="text-slate-400 font-bold text-sm px-2 select-none">
+                  —
+                </span>
+              </div>
+            );
+          }
+
+          return (
+            <div className="flex items-center min-w-[130px]">
+              <Link
+                href={`/dashboard/my-listings/${listing.id}/services-products`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-indigo-200/90 bg-indigo-50/70 hover:bg-indigo-100 hover:border-indigo-300 text-indigo-700 transition-all text-xs font-bold group cursor-pointer shadow-2xs hover:shadow-xs"
+                title={`Manage Services & Products (${count} items)`}
+              >
+                <Briefcase className="w-3.5 h-3.5 text-indigo-600 group-hover:scale-110 transition-transform shrink-0" />
+                <span>Manage</span>
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] font-extrabold bg-white text-indigo-700 border border-indigo-200/80 shadow-2xs">
+                  {count}
+                </span>
+              </Link>
+            </div>
           );
         },
       },

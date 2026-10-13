@@ -18,6 +18,7 @@ import { ListingFAQs } from "./listing-faqs";
 import { ListingSimilarBusinesses } from "./listing-similar-businesses";
 import { ListingDetailSidebar } from "./listing-detail-sidebar";
 import { ListingInquiryModal } from "./listing-inquiry-modal";
+import { ListingServicesProducts } from "./listing-services-products";
 import { ArrowLeft, SearchX } from "lucide-react";
 
 interface ListingDetailContentProps {
@@ -26,6 +27,12 @@ interface ListingDetailContentProps {
 
 export function ListingDetailContent({ slug }: ListingDetailContentProps) {
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string>("");
+
+  const handleOpenInquiry = (serviceName?: string) => {
+    setSelectedService(serviceName || "");
+    setIsInquiryOpen(true);
+  };
   const decodedSlug = decodeURIComponent(slug).toLowerCase().trim().replace(/\s+/g, "-");
   const listing = getListingBySlug(slug) || getListingBySlug(decodedSlug);
 
@@ -80,10 +87,7 @@ export function ListingDetailContent({ slug }: ListingDetailContentProps) {
             <ListingDetailHeader listing={listing} />
 
             {/* 2. Contact Cards & Social Links */}
-            <ListingContactCards 
-              listing={listing} 
-              onOpenInquiry={() => setIsInquiryOpen(true)} 
-            />
+            <ListingContactCards listing={listing} />
 
             {/* 3. Quick Info (Established, Employees) */}
             <ListingQuickInfo listing={listing} />
@@ -91,13 +95,16 @@ export function ListingDetailContent({ slug }: ListingDetailContentProps) {
             {/* 5. About the Business Description */}
             <ListingAbout listing={listing} />
 
+            {/* 5.1 Services & Products (Direct Partner Offerings) */}
+            <ListingServicesProducts 
+              listing={listing} 
+              onInquire={handleOpenInquiry} 
+            />
+
             {/* 6. Photo Gallery */}
             <ListingGallery listing={listing} />
 
-            {/* 7. Tags & Keywords */}
-            <ListingTags listing={listing} />
-
-            {/* 8. Location & Interactive Google Map */}
+            {/* 7. Location & Interactive Google Map */}
             <ListingLocationMap listing={listing} />
 
             {/* 8. Business Hours */}
@@ -108,14 +115,14 @@ export function ListingDetailContent({ slug }: ListingDetailContentProps) {
 
             {/* 10. Frequently Asked Questions */}
             <ListingFAQs listing={listing} />
+
+            {/* 11. Tags & Keywords */}
+            <ListingTags listing={listing} />
           </main>
 
           {/* Right Sidebar Column (approx. 32% width on desktop) */}
           <div className="w-full lg:w-[30%] lg:sticky lg:top-24">
-            <ListingDetailSidebar 
-              listing={listing} 
-              onOpenInquiry={() => setIsInquiryOpen(true)} 
-            />
+            <ListingDetailSidebar listing={listing} />
           </div>
         </div>
 
@@ -125,14 +132,13 @@ export function ListingDetailContent({ slug }: ListingDetailContentProps) {
         </div>
       </Container>
 
-      {/* 12. Customer Inquiry Modal (Available only for service partner listings) */}
-      {listing.providesService && (
-        <ListingInquiryModal
-          listing={listing}
-          open={isInquiryOpen}
-          onOpenChange={setIsInquiryOpen}
-        />
-      )}
+      {/* 12. Customer Inquiry Modal */}
+      <ListingInquiryModal
+        listing={listing}
+        open={isInquiryOpen}
+        onOpenChange={setIsInquiryOpen}
+        selectedService={selectedService}
+      />
     </div>
   );
 }

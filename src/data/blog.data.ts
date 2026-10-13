@@ -2,6 +2,12 @@ export interface BlogAuthor {
   name: string;
   role: string;
   avatar: string;
+  socialLinks?: {
+    instagram?: string;
+    facebook?: string;
+    twitter?: string;
+    linkedin?: string;
+  };
 }
 
 export interface BlogPost {

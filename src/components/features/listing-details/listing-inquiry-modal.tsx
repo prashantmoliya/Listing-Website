@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { 
@@ -12,7 +13,6 @@ import {
 import { Modal } from "@/components/common/modal";
 import { InputWithLabel } from "@/components/common/input-with-label";
 import { TextareaWithLabel } from "@/components/common/textarea-with-label";
-import { SelectWithLabel } from "@/components/common/select-with-label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -23,29 +23,22 @@ interface ListingInquiryModalProps {
   listing: ListingItem;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  selectedService?: string;
 }
 
 export function ListingInquiryModal({
   listing,
   open,
   onOpenChange,
+  selectedService,
 }: ListingInquiryModalProps) {
-  const serviceOptions = (listing.servicesOffered || []).map((s) => ({
-    value: s,
-    label: s,
-  }));
-
-  if (serviceOptions.length > 0) {
-    serviceOptions.push({
-      value: "Other / Custom Requirement",
-      label: "Other / Custom Requirement",
-    });
-  }
+  const activeService = selectedService || listing.servicesOffered?.[0] || "General Product / Service Consultation";
 
   const {
     control,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<ListingInquiryFormValues>({
     resolver: zodResolver(listingInquiryFormSchema),
@@ -53,11 +46,17 @@ export function ListingInquiryModal({
       fullName: "",
       phone: "",
       email: "",
-      service: serviceOptions.length > 0 ? serviceOptions[0].value : "General Service Consultation",
+      service: activeService,
       preferredContact: "WhatsApp",
       message: "",
     },
   });
+
+  useEffect(() => {
+    if (open) {
+      setValue("service", activeService);
+    }
+  }, [open, activeService, setValue]);
 
   const handleClose = () => {
     reset();
@@ -75,7 +74,7 @@ export function ListingInquiryModal({
       fullName: data.fullName,
       phone: data.phone,
       email: data.email,
-      service: data.service,
+      service: data.service || activeService,
       preferredContact: data.preferredContact,
       message: data.message || "",
     });
@@ -93,8 +92,8 @@ export function ListingInquiryModal({
         }
       }}
       maxWidth="sm:max-w-xl"
-      title="Send Service Inquiry"
-      description={`Directly connect with ${listing.name} to receive quotes and service details.`}
+      title={selectedService ? `Inquire: ${selectedService}` : "Send Product / Service Inquiry"}
+      description={`Directly connect with ${listing.name} to receive quotes, availability, and service details.`}
       headerIcon={
         <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
           <Send size={16} />
@@ -149,9 +148,6 @@ export function ListingInquiryModal({
               </p>
             </div>
           </div>
-          <Badge variant="outline" className="bg-white text-indigo-700 border-indigo-200 text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 shrink-0">
-            Service Partner
-          </Badge>
         </div>
 
         {/* Form grid with Controller inputs */}
@@ -208,29 +204,18 @@ export function ListingInquiryModal({
           <Controller
             name="service"
             control={control}
-            render={({ field }) =>
-              serviceOptions.length > 0 ? (
-                <SelectWithLabel
-                  id="inquiry-service"
-                  label="Service Needed"
-                  options={serviceOptions}
-                  value={field.value}
-                  onValueChange={field.onChange}
-                  placeholder="Choose a service"
-                  error={errors.service?.message}
-                  disabled={isSubmitting}
-                />
-              ) : (
-                <InputWithLabel
-                  id="inquiry-service"
-                  label="Service Needed"
-                  placeholder="e.g. Consultation / Service Quote"
-                  error={errors.service?.message}
-                  disabled={isSubmitting}
-                  {...field}
-                />
-              )
-            }
+            render={({ field }) => (
+              <InputWithLabel
+                id="inquiry-service"
+                label="Selected Service / Product"
+                placeholder="Selected Service or Product"
+                error={errors.service?.message}
+                disabled={true}
+                readOnly
+                className="bg-slate-100 text-slate-800 font-semibold cursor-not-allowed border-slate-200 select-none"
+                {...field}
+              />
+            )}
           />
         </div>
 

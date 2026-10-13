@@ -12,3 +12,4 @@ export * from "./listing-similar-businesses";
 export * from "./listing-detail-sidebar";
 export * from "./listing-detail-content";
 export * from "./listing-inquiry-modal";
+export * from "./listing-services-products";

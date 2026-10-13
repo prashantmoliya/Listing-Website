@@ -1,3 +1,5 @@
+import type { ListingServiceProductItem } from "./data";
+
 export interface UserListingItem {
   id: string;
   name: string;
@@ -15,6 +17,7 @@ export interface UserListingItem {
   established: string;
   listedDate: string;
   rejectionReason?: string;
+  servicesAndProducts?: ListingServiceProductItem[];
 }
 
 export interface ReceivedReviewItem {
@@ -59,6 +62,53 @@ export const initialUserListings: UserListingItem[] = [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&auto=format&fit=crop&q=60",
     established: "2012",
     listedDate: "12 Jan 2026",
+    servicesAndProducts: [
+      {
+        id: "sp-101",
+        name: "Royal Heritage Courtyard Suite",
+        category: "Suites & Rooms",
+        description: "Opulent royal suite overlooking the central palace courtyard with private 24/7 butler service and jacuzzi.",
+        price: 25000,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&auto=format&fit=crop&q=60",
+      },
+      {
+        id: "sp-102",
+        name: "Candlelight Courtyard Dinner for Two",
+        category: "Dining & Events",
+        description: "Curated 7-course traditional Rajasthani royal thali dining under the starry sky with live folk sitar.",
+        price: 8500,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop&q=60",
+      },
+      {
+        id: "sp-103",
+        name: "Ayurvedic Royal Wellness & Spa Therapy",
+        category: "Wellness & Spa",
+        description: "Traditional herbal steam bath, deep-tissue therapy, and aromatherapy by certified Vaidyas.",
+        price: 4500,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&auto=format&fit=crop&q=60",
+      },
+      {
+        id: "sp-104",
+        name: "Royal Destination Wedding Lawn Booking",
+        category: "Dining & Events",
+        description: "Grand heritage courtyard and banquet lawn with 800+ guest capacity and customized royal decor packages.",
+        price: 350000,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&auto=format&fit=crop&q=60",
+      },
+      {
+        id: "sp-105",
+        name: "Luxury Airport Chauffeur Transfer",
+        category: "Suites & Rooms",
+        description: "Pick-up and drop in luxury sedan from Jaipur International Airport with refreshment kit.",
+        price: 2200,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&auto=format&fit=crop&q=60",
+      },
+    ],
   },
   {
     id: "lst-2",
@@ -112,6 +162,26 @@ export const initialUserListings: UserListingItem[] = [
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&auto=format&fit=crop&q=60",
     established: "2023",
     listedDate: "20 Sep 2026",
+    servicesAndProducts: [
+      {
+        id: "sp-401",
+        name: "Custom Bespoke Designer Sherwani",
+        category: "Bridal & Groom",
+        description: "Handcrafted wedding sherwani with intricate zardozi embroidery and custom bespoke fitting.",
+        price: 38000,
+        popular: true,
+        image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=60",
+      },
+      {
+        id: "sp-402",
+        name: "Italian Wool 3-Piece Tuxedo Suit",
+        category: "Formal Wear",
+        description: "Premium Italian virgin wool fabric tailored to your measurement with satin lapel accents.",
+        price: 24500,
+        popular: false,
+        image: "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=600&auto=format&fit=crop&q=60",
+      },
+    ],
   },
 ];
 

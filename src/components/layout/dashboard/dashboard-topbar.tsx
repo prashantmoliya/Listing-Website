@@ -44,7 +44,12 @@ export function DashboardTopbar({ onOpenMobile }: DashboardTopbarProps) {
   // Find matching title or default
   const pageInfo =
     pageTitles[pathname] ||
-    (pathname.startsWith("/dashboard/edit-listing") || pathname.startsWith("/edit-listing")
+    (pathname.includes("/services-products")
+      ? {
+          title: "Services & Products",
+          subtitle: "Add, edit, and organize offerings showcased on your featured business listing.",
+        }
+      : pathname.startsWith("/dashboard/edit-listing") || pathname.startsWith("/edit-listing")
       ? {
           title: "Edit Listing",
           subtitle: "Update your business details, media, and operating hours.",

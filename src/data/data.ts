@@ -26,6 +26,17 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface ListingServiceProductItem {
+  id: string;
+  name: string;
+  description?: string;
+  price?: number;
+  category?: string;
+  image?: string;
+  popular?: boolean;
+  isActive?: boolean;
+}
+
 export interface ListingItem {
   id: string;
   name: string;
@@ -64,6 +75,7 @@ export interface ListingItem {
   faqs?: FAQItem[];
   providesService?: boolean;
   servicesOffered?: string[];
+  servicesAndProducts?: ListingServiceProductItem[];
 }
 
 export interface CityItem {
@@ -283,6 +295,50 @@ export const featuredListings: ListingItem[] = [
       "Native & Cross-Platform Mobile Apps",
       "Enterprise AI & Generative AI Solutions",
     ],
+    servicesAndProducts: [
+      {
+        id: "sp-tech-1",
+        name: "Custom Web & Portal Development",
+        description: "High-performance Next.js and React enterprise portals with cloud-native backend architecture.",
+        price: 75000,
+        category: "Web & Mobile",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
+        popular: true,
+      },
+      {
+        id: "sp-tech-2",
+        name: "Cloud Architecture & AWS/Azure DevOps",
+        description: "Scalable Kubernetes microservices, CI/CD pipeline automation, and multi-cloud security hardening.",
+        price: 120000,
+        category: "Cloud & AI",
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
+      },
+      {
+        id: "sp-tech-3",
+        name: "Native & Cross-Platform Mobile Apps",
+        description: "Fluid iOS & Android applications using Flutter and React Native with offline sync.",
+        price: 150000,
+        category: "Web & Mobile",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
+        popular: true,
+      },
+      {
+        id: "sp-tech-4",
+        name: "Ready-to-Deploy E-Commerce Starter Kit",
+        description: "Pre-built full-stack multivendor shopping software with Razorpay integration and inventory management.",
+        price: 49999,
+        category: "Software Products",
+        image: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=600&auto=format&fit=crop&q=80",
+      },
+      {
+        id: "sp-tech-5",
+        name: "Enterprise AI & Generative AI Solutions",
+        description: "Custom LLM integrations, document retrieval engines (RAG), and intelligent conversational agents.",
+        price: 250000,
+        category: "Cloud & AI",
+        image: "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=600&auto=format&fit=crop&q=80",
+      },
+    ],
   },
   {
     id: "l-2",
@@ -354,6 +410,59 @@ export const featuredListings: ListingItem[] = [
       "Luxury Villa Buying Advisory",
       "Legal Property Due Diligence",
       "Home Loan & Documentation Support",
+    ],
+    servicesAndProducts: [
+      {
+        id: "sp-1",
+        name: "Commercial Office Space Leasing",
+        description: "Grade-A IT parks & plug-and-play office setups in HITEC City & Financial District with flexible lock-in leases.",
+        price: 150000,
+        category: "Commercial",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=80",
+        popular: true,
+      },
+      {
+        id: "sp-2",
+        name: "Luxury Villa Buying Advisory",
+        description: "Curated portfolio of RERA-approved gated luxury villas in Gachibowli, Kokapet, and Jubilee Hills with legal vetting.",
+        price: 35000000,
+        category: "Residential",
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&auto=format&fit=crop&q=80",
+        popular: true,
+      },
+      {
+        id: "sp-3",
+        name: "Pre-Leased Grade-A Office Unit",
+        description: "Immediate rental yield commercial investment in Financial District with multinational IT tenant lease lock-in.",
+        price: 48000000,
+        category: "Commercial",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80",
+        popular: true,
+      },
+      {
+        id: "sp-4",
+        name: "RERA Approved Luxury Villa Plot",
+        description: "Gated community freehold residential villa plots near Kokapet Neopolis with premium underground cabling and club amenities.",
+        price: 9500000,
+        category: "Residential",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&auto=format&fit=crop&q=80",
+      },
+      {
+        id: "sp-5",
+        name: "Legal Property Due Diligence",
+        description: "Comprehensive 30-year title verification, link documents inspection, and encumbrance certificate clearance by senior property advocates.",
+        price: 15000,
+        category: "Legal & Advisory",
+        image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?w=600&auto=format&fit=crop&q=80",
+      },
+      {
+        id: "sp-6",
+        name: "Home Loan & Documentation Support",
+        description: "Doorstep home loan assistance with leading partner banks (HDFC, SBI, ICICI) at competitive interest rates with zero processing delays.",
+        price: 0,
+        category: "Legal & Advisory",
+        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=80",
+      },
     ],
   },
 ];

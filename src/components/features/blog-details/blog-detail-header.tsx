@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, Clock, Eye, Calendar } from "lucide-react";
 import { BlogPost } from "@/data";
 import { Badge } from "@/components/ui/badge";
@@ -67,28 +66,6 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
         {post.title}
       </h1>
-
-      {/* Author Bar */}
-      <div className="pt-4 border-t border-slate-200/80 flex items-center justify-between gap-4 flex-wrap">
-        <div className="flex items-center gap-3">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden bg-slate-200 ring-2 ring-indigo-100 shrink-0">
-            <Image
-              src={post.author.avatar}
-              alt={post.author.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <p className="text-sm font-bold text-slate-900 leading-tight">
-              {post.author.name}
-            </p>
-            <p className="text-xs text-slate-500 font-medium">
-              {post.author.role}
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
