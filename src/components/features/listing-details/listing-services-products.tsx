@@ -108,16 +108,16 @@ export function ListingServicesProducts({
       </div>
 
       {/* Controls: Category Tabs & Search Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-        {/* Dynamic Category Tabs using Tabs component */}
-        {categories.length > 0 ? (
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-3 pt-1">
+        {/* Dynamic Category Tabs using Tabs component with flex-wrap - No horizontal scrollbar */}
+        {categories.length > 0 ? ( 
           <Tabs
             value={activeCategory}
             onValueChange={(val) => setActiveCategory(val as string)}
             className="w-full sm:w-auto"
           >
-            <TabsList className="h-10 p-1 bg-slate-50/90 rounded-xl flex items-center gap-1 overflow-x-auto w-full sm:w-auto border border-slate-200/70">
-              {categories.map((cat) => {
+            <TabsList className="h-10 p-1 bg-slate-50/90 rounded-xl flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto border border-slate-200/70">
+              {categories.map((cat) => { 
                 const count =
                   cat === "All"
                     ? items.length
@@ -155,15 +155,15 @@ export function ListingServicesProducts({
           <div />
         )}
 
-        {/* Search Bar */}
-        <div className="relative w-full sm:w-64 shrink-0">
+        {/* Search Bar - Full width on mobile/tablet/laptop, compact on xl screens */}
+        <div className="relative w-full xl:w-64 shrink-0">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <Input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search offerings..."
-            className="pl-8.5 pr-8 h-9 text-xs rounded-xl bg-slate-50 border-slate-200 focus-visible:bg-white focus-visible:border-indigo-600 font-medium"
+            className="pl-8.5 pr-8 h-10 text-xs rounded-xl bg-slate-50 border-slate-200 focus-visible:bg-white focus-visible:border-indigo-600 font-medium w-full"
           />
           {searchQuery && (
             <button
