@@ -19,7 +19,7 @@ export const listingWizardSteps = [
 
 interface StepperHeaderProps {
   currentStep: number;
-  onSelectStep: (stepId: number) => void;
+  onSelectStep?: (stepId: number) => void;
 }
 
 export function StepperHeader({
@@ -34,7 +34,7 @@ export function StepperHeader({
   );
 
   return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-2xs p-4 sm:p-5 lg:p-6 overflow-hidden">
+    <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-2xs p-4 sm:p-5 lg:p-6 overflow-hidden select-none">
       {/* Mobile Stepper View (< md) */}
       <div className="md:hidden space-y-3.5">
         <div className="flex items-center justify-between">
@@ -66,32 +66,48 @@ export function StepperHeader({
           />
         </div>
 
-        {/* Horizontal Scrollable Step Pills for quick navigation on mobile */}
+        {/* Step Pills on mobile (Display only - not changing steps on click) */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5 -mx-1 px-1 scrollbar-none">
           {listingWizardSteps.map((step) => {
             const isCurrent = currentStep === step.id;
             const isCompleted = currentStep > step.id;
             const Icon = step.icon;
+
+            const pillClasses = `shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all select-none ${
+              isCurrent
+                ? "bg-indigo-600 text-white shadow-xs"
+                : isCompleted
+                ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                : "bg-slate-100 text-slate-500"
+            }`;
+
+            if (onSelectStep) {
+              return (
+                <button
+                  key={step.id}
+                  type="button"
+                  onClick={() => onSelectStep(step.id)}
+                  className={`${pillClasses} cursor-pointer`}
+                >
+                  {isCompleted ? (
+                    <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  ) : (
+                    <Icon className="w-3.5 h-3.5 shrink-0" />
+                  )}
+                  <span>{step.name}</span>
+                </button>
+              );
+            }
+
             return (
-              <button
-                key={step.id}
-                type="button"
-                onClick={() => onSelectStep(step.id)}
-                className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                  isCurrent
-                    ? "bg-indigo-600 text-white shadow-xs"
-                    : isCompleted
-                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                }`}
-              >
+              <div key={step.id} className={pillClasses}>
                 {isCompleted ? (
                   <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 ) : (
                   <Icon className="w-3.5 h-3.5 shrink-0" />
                 )}
                 <span>{step.name}</span>
-              </button>
+              </div>
             );
           })}
         </div>
@@ -105,62 +121,74 @@ export function StepperHeader({
           const Icon = step.icon;
           const isLast = index === listingWizardSteps.length - 1;
 
+          const stepBadgeAndText = (
+            <>
+              {/* Step Circle / Badge */}
+              <div
+                className={`w-9 h-9 lg:w-10 lg:h-10 rounded-2xl flex items-center justify-center font-bold text-xs sm:text-sm transition-all shrink-0 ${
+                  isCurrent
+                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25 ring-4 ring-indigo-50"
+                    : isCompleted
+                    ? "bg-emerald-500 text-white shadow-xs"
+                    : "bg-slate-100 text-slate-400"
+                }`}
+              >
+                {isCompleted ? (
+                  <Check className="w-4 h-4 lg:w-5 lg:h-5 text-white stroke-[2.5]" />
+                ) : (
+                  <Icon className="w-4 h-4 lg:w-4.5 lg:h-4.5" />
+                )}
+              </div>
+
+              {/* Step Text */}
+              <div className="min-w-0">
+                <span
+                  className={`text-[10px] font-bold uppercase tracking-wider block ${
+                    isCurrent
+                      ? "text-indigo-600"
+                      : isCompleted
+                      ? "text-emerald-600"
+                      : "text-slate-400"
+                  }`}
+                >
+                  Step 0{step.id}
+                </span>
+                <p
+                  className={`text-xs lg:text-sm font-bold truncate ${
+                    isCurrent
+                      ? "text-indigo-600"
+                      : isCompleted
+                      ? "text-slate-900"
+                      : "text-slate-500"
+                  }`}
+                >
+                  {step.name}
+                </p>
+                <p className="text-[10px] text-slate-400 hidden xl:block truncate">
+                  {step.desc}
+                </p>
+              </div>
+            </>
+          );
+
           return (
             <div
               key={step.id}
               className="flex items-center flex-1 last:flex-none"
             >
-              <button
-                type="button"
-                onClick={() => onSelectStep(step.id)}
-                className="flex items-center gap-2.5 lg:gap-3 group cursor-pointer focus:outline-none text-left"
-              >
-                {/* Step Circle / Badge */}
-                <div
-                  className={`w-9 h-9 lg:w-10 lg:h-10 rounded-2xl flex items-center justify-center font-bold text-xs sm:text-sm transition-all shrink-0 ${
-                    isCurrent
-                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25 ring-4 ring-indigo-50"
-                      : isCompleted
-                      ? "bg-emerald-500 text-white shadow-xs"
-                      : "bg-slate-100 text-slate-400 group-hover:bg-slate-200/80 group-hover:text-slate-600"
-                  }`}
+              {onSelectStep ? (
+                <button
+                  type="button"
+                  onClick={() => onSelectStep(step.id)}
+                  className="flex items-center gap-2.5 lg:gap-3 group cursor-pointer focus:outline-none text-left"
                 >
-                  {isCompleted ? (
-                    <Check className="w-4 h-4 lg:w-5 lg:h-5 text-white stroke-[2.5]" />
-                  ) : (
-                    <Icon className="w-4 h-4 lg:w-4.5 lg:h-4.5" />
-                  )}
+                  {stepBadgeAndText}
+                </button>
+              ) : (
+                <div className="flex items-center gap-2.5 lg:gap-3 text-left">
+                  {stepBadgeAndText}
                 </div>
-
-                {/* Step Text */}
-                <div className="min-w-0">
-                  <span
-                    className={`text-[10px] font-bold uppercase tracking-wider block ${
-                      isCurrent
-                        ? "text-indigo-600"
-                        : isCompleted
-                        ? "text-emerald-600"
-                        : "text-slate-400"
-                    }`}
-                  >
-                    Step 0{step.id}
-                  </span>
-                  <p
-                    className={`text-xs lg:text-sm font-bold truncate ${
-                      isCurrent
-                        ? "text-indigo-600"
-                        : isCompleted
-                        ? "text-slate-900"
-                        : "text-slate-500 group-hover:text-slate-700"
-                    }`}
-                  >
-                    {step.name}
-                  </p>
-                  <p className="text-[10px] text-slate-400 hidden xl:block truncate">
-                    {step.desc}
-                  </p>
-                </div>
-              </button>
+              )}
 
               {/* Connecting Line between steps */}
               {!isLast && (

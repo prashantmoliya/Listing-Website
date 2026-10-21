@@ -171,11 +171,8 @@ export function ListingFormWizard({
         </Link>
       </div>
 
-      {/* Stepper Header (1 to 5) */}
-      <StepperHeader
-        currentStep={currentStep}
-        onSelectStep={(stepId) => setCurrentStep(stepId)}
-      />
+      {/* Stepper Header (1 to 5) - Visual progress tracker (step cannot be changed by clicking on top) */}
+      <StepperHeader currentStep={currentStep} />
 
       {/* Step Form Body */}
       <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-2xs">
