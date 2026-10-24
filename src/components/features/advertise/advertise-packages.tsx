@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Check, X, ArrowRight, Sparkles } from "lucide-react";
+import { Check, X, ArrowRight } from "lucide-react";
 import { Container } from "@/components/common";
 
 const packages = [
@@ -38,8 +38,8 @@ const packages = [
     tag: "PACKAGE 2",
     tagColor: "text-amber-600",
     name: "Featured Listing",
-    price: "₹99",
-    period: "/ forever",
+    price: "₹199",
+    period: "/ 3 months",
     highlight: true,
     headline: "Maximum Visibility for Your Business",
     headlineColor: "text-amber-600",
@@ -50,6 +50,34 @@ const packages = [
     buttonStyle: "bg-amber-100 hover:bg-amber-200/90 text-amber-800 border border-amber-200 font-bold",
     checkBg: "bg-amber-100 text-amber-700",
     included: [
+      "Add up to 5 Services & Products.",
+      "Unlimited listing duration with a do-follow website link.",
+      "Featured listing on the homepage.",
+      "Business highlighting on the category pages.",
+      "Featured listing on the featured page.",
+      "Business highlighting in search results.",
+    ],
+    excluded: [],
+  },
+  {
+    icon: "🚀",
+    iconBg: "bg-purple-100 border border-purple-200/90",
+    tag: "PACKAGE 3",
+    tagColor: "text-purple-600",
+    name: "Featured Pro",
+    price: "₹499",
+    period: "/ 3 months",
+    highlight: false,
+    headline: "Maximum Power for Growing Brands",
+    headlineColor: "text-purple-600",
+    description:
+      "Featured Pro includes listing for unlimited days, Featured listing on homepage, Featured listing on featured page, and priority placement in category and search results.",
+    buttonText: "Get Featured Pro",
+    buttonHref: "/listings/create",
+    buttonStyle: "bg-purple-100 hover:bg-purple-200/90 text-purple-800 border border-purple-200 font-bold",
+    checkBg: "bg-purple-100 text-purple-700",
+    included: [
+      "Add up to 10 Services & Products.",
       "Unlimited listing duration with a do-follow website link.",
       "Featured listing on the homepage.",
       "Business highlighting on the category pages.",
@@ -61,7 +89,7 @@ const packages = [
   {
     icon: "🖼️",
     iconBg: "bg-indigo-50 border border-indigo-100",
-    tag: "PACKAGE 3",
+    tag: "PACKAGE 4",
     tagColor: "text-indigo-600",
     name: "Banner Ads",
     price: "Custom",
@@ -101,20 +129,20 @@ export function AdvertisePackages() {
             Choose Your Advertising Package
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Three powerful ways to grow your business and reach customers across India.
+            Four powerful ways to grow your business and reach customers across India.
           </p>
         </div>
 
-        {/* 3 Packages Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-          {packages.map((pkg) => (
+        {/* Packages Cards Grid: 3 in 1st row, 1 centered in 2nd row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {packages.map((pkg, index) => (
             <div
               key={pkg.name}
               className={`rounded-3xl flex flex-col justify-between transition-all duration-300 relative ${
                 pkg.highlight
                   ? "bg-white border-2 border-indigo-500 shadow-[0_12px_40px_rgba(99,102,241,0.18)] lg:-translate-y-3 p-8 sm:p-9"
                   : "bg-card border border-border shadow-[0_4px_24px_rgba(0,0,0,0.05)] hover:shadow-xl p-8"
-              }`}
+              } ${index === 3 ? "md:col-span-2 md:max-w-md md:mx-auto lg:col-span-1 lg:col-start-2 lg:max-w-none w-full" : ""}`}
             >
               {/* Top Badges for Featured Package */}
               {pkg.highlight && (
@@ -129,7 +157,7 @@ export function AdvertisePackages() {
               )}
 
               <div>
-                {/* Icon Box above PACKAGE 1, 2, 3 */}
+                {/* Icon Box above PACKAGE 1, 2, 3, 4 */}
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <div
                     className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-xs transition-transform hover:scale-105 ${pkg.iconBg}`}

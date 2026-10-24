@@ -10,3 +10,4 @@ export * from "./textarea-with-label";
 export * from "./data-table";
 export * from "./popover-menu";
 export * from "./modal";
+export * from "./scroll-to-top";
