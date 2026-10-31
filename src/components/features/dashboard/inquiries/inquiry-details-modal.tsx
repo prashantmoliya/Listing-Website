@@ -161,22 +161,15 @@ export function InquiryDetailsModal({
                 Contact Via
               </span>
               <div className="pt-0.5 flex items-center">
-                {inquiry.preferredContact === "WhatsApp" && (
+                {inquiry.preferredContact === "WhatsApp" ? (
                   <Badge variant="teal" className="gap-1 font-semibold text-[11px] max-w-full">
                     <MessageSquare className="w-3 h-3 text-teal-600 shrink-0" />
                     <span>WhatsApp</span>
                   </Badge>
-                )}
-                {inquiry.preferredContact === "Phone" && (
+                ) : (
                   <Badge variant="indigo" className="gap-1 font-semibold text-[11px] max-w-full">
                     <Phone className="w-3 h-3 text-indigo-600 shrink-0" />
                     <span>Phone Call</span>
-                  </Badge>
-                )}
-                {inquiry.preferredContact === "Email" && (
-                  <Badge variant="sky" className="gap-1 font-semibold text-[11px] max-w-full">
-                    <Mail className="w-3 h-3 text-sky-600 shrink-0" />
-                    <span>Email</span>
                   </Badge>
                 )}
               </div>
@@ -226,17 +219,6 @@ export function InquiryDetailsModal({
             >
               <Phone size={14} />
               <span>Call Customer</span>
-            </Button>
-          </a>
-
-          <a href={`mailto:${inquiry.email}`} className="w-full sm:flex-1">
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full h-9 rounded-[10px] border-slate-200 text-slate-700 hover:bg-slate-50 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
-            >
-              <Mail size={14} />
-              <span>Send Email</span>
             </Button>
           </a>
         </div>

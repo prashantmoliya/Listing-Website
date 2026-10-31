@@ -7,7 +7,6 @@ import {
   Send, 
   Phone, 
   MessageSquare, 
-  Mail, 
   Loader2
 } from "lucide-react";
 import { Modal } from "@/components/common/modal";
@@ -228,7 +227,7 @@ export function ListingInquiryModal({
               <label className="text-xs sm:text-sm font-bold text-slate-700 select-none block">
                 How should the business owner contact you?
               </label>
-              <div className="grid grid-cols-1 min-[375px]:grid-cols-3 gap-1.5 sm:gap-2 min-w-0">
+              <div className="grid grid-cols-2 gap-2 min-w-0">
                 <Button
                   type="button"
                   variant="outline"
@@ -236,14 +235,14 @@ export function ListingInquiryModal({
                   disabled={isSubmitting}
                   onClick={() => field.onChange("WhatsApp")}
                   className={cn(
-                    "h-9 sm:h-10 min-w-0 px-1 sm:px-2.5 rounded-[10px] border text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer transition-all",
+                    "h-9 sm:h-10 min-w-0 px-2 sm:px-3 rounded-[10px] border text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer transition-all",
                     field.value === "WhatsApp"
                       ? "bg-teal-50 border-teal-500 text-teal-800 shadow-xs ring-1 ring-teal-500/30"
                       : "border-slate-200 text-slate-600 hover:bg-slate-50"
                   )}
                 >
-                  <MessageSquare size={13} className={cn("shrink-0", field.value === "WhatsApp" ? "text-teal-600" : "")} />
-                  <span className="truncate">WhatsApp</span>
+                  <MessageSquare size={14} className={cn("shrink-0", field.value === "WhatsApp" ? "text-teal-600" : "")} />
+                  <span>WhatsApp</span>
                 </Button>
 
                 <Button
@@ -253,31 +252,14 @@ export function ListingInquiryModal({
                   disabled={isSubmitting}
                   onClick={() => field.onChange("Phone")}
                   className={cn(
-                    "h-9 sm:h-10 min-w-0 px-1 sm:px-2.5 rounded-[10px] border text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer transition-all",
+                    "h-9 sm:h-10 min-w-0 px-2 sm:px-3 rounded-[10px] border text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer transition-all",
                     field.value === "Phone"
                       ? "bg-indigo-50 border-indigo-500 text-indigo-900 shadow-xs ring-1 ring-indigo-500/30"
                       : "border-slate-200 text-slate-600 hover:bg-slate-50"
                   )}
                 >
-                  <Phone size={13} className={cn("shrink-0", field.value === "Phone" ? "text-indigo-600" : "")} />
-                  <span className="truncate">Phone</span>
-                </Button>
-
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  disabled={isSubmitting}
-                  onClick={() => field.onChange("Email")}
-                  className={cn(
-                    "h-9 sm:h-10 min-w-0 px-1 sm:px-2.5 rounded-[10px] border text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer transition-all",
-                    field.value === "Email"
-                      ? "bg-blue-50 border-blue-500 text-blue-900 shadow-xs ring-1 ring-blue-500/30"
-                      : "border-slate-200 text-slate-600 hover:bg-slate-50"
-                  )}
-                >
-                  <Mail size={13} className={cn("shrink-0", field.value === "Email" ? "text-blue-600" : "")} />
-                  <span className="truncate">Email</span>
+                  <Phone size={14} className={cn("shrink-0", field.value === "Phone" ? "text-indigo-600" : "")} />
+                  <span>Phone</span>
                 </Button>
               </div>
               {errors.preferredContact && (

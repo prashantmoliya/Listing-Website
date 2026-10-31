@@ -16,7 +16,7 @@ export const listingInquiryFormSchema = z.object({
   service: z
     .string()
     .min(1, "Please select or specify the service needed"),
-  preferredContact: z.enum(["WhatsApp", "Phone", "Email"]),
+  preferredContact: z.enum(["WhatsApp", "Phone"]),
   message: z
     .string()
     .min(5, "Please describe your requirement (at least 5 characters)")

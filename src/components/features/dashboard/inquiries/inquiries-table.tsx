@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import {
   MessageSquare,
   Phone,
-  Mail,
   Building2,
   Calendar,
   Clock,
@@ -120,19 +119,10 @@ export function InquiriesTable({
             );
           }
 
-          if (method === "Phone") {
-            return (
-              <Badge variant="indigo" className="gap-1 font-semibold">
-                <Phone className="w-3 h-3 text-indigo-600" />
-                <span>Phone Call</span>
-              </Badge>
-            );
-          }
-
           return (
-            <Badge variant="sky" className="gap-1 font-semibold">
-              <Mail className="w-3 h-3 text-sky-600" />
-              <span>Email</span>
+            <Badge variant="indigo" className="gap-1 font-semibold">
+              <Phone className="w-3 h-3 text-indigo-600" />
+              <span>Phone Call</span>
             </Badge>
           );
         },

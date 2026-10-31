@@ -8,7 +8,7 @@ export interface CustomerInquiryItem {
   phone: string;
   email: string;
   service: string;
-  preferredContact: "WhatsApp" | "Phone" | "Email";
+  preferredContact: "WhatsApp" | "Phone";
   message: string;
   status: "Pending" | "Resolved" | "Rejected";
   date: string;
@@ -78,7 +78,7 @@ export const initialCustomerInquiries: CustomerInquiryItem[] = [
     phone: "9909012345",
     email: "vikram.mehta@example.com",
     service: "Executive Full Body Health Checkup",
-    preferredContact: "Email",
+    preferredContact: "Phone",
     message: "Could you please send the detailed list of diagnostic tests included in the Executive Full Body Health Checkup package and fasting instructions?",
     status: "Rejected",
     date: "03 Oct 2026",
