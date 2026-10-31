@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Eye, ArrowRight } from "lucide-react";
+import { Eye, ArrowRight } from "lucide-react";
 import { BlogPost } from "@/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -33,14 +33,6 @@ export function BlogCard({ post }: BlogCardProps) {
             >
               {post.category}
             </Badge>
-          </div>
-
-          {/* Reading Time */}
-          <div className="absolute bottom-3 right-3 z-10">
-            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-slate-950/70 backdrop-blur-xs px-2.5 py-1 rounded-full">
-              <Clock className="w-3 h-3 text-slate-300" />
-              <span>{post.readTime}</span>
-            </span>
           </div>
         </div>
 
@@ -73,7 +65,7 @@ export function BlogCard({ post }: BlogCardProps) {
       <div className="p-5 sm:p-6 pt-0 mt-2 border-t border-slate-100/80 flex items-center justify-between gap-3">
         {/* Author info */}
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="relative w-8 h-8 rounded-full overflow-hidden bg-slate-200 shrink-0">
+          <div className="relative w-9.75 h-9.75 rounded-full overflow-hidden bg-slate-200 shrink-0">
             <Image
               src={post.author.avatar}
               alt={post.author.name}
@@ -81,9 +73,14 @@ export function BlogCard({ post }: BlogCardProps) {
               className="object-cover"
             />
           </div>
-          <span className="text-xs font-bold text-slate-700 truncate">
-            {post.author.name}
-          </span>
+          <div className="min-w-0">
+            <p className="text-[13px] font-bold text-slate-900 truncate leading-tight">
+              {post.author.name}
+            </p>
+            <p className="text-[11px] text-slate-400 font-medium truncate max-w-[130px] sm:max-w-[160px]">
+              {post.author.role}
+            </p>
+          </div>
         </div>
 
         {/* Read Button */}

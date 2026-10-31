@@ -93,7 +93,7 @@ export function BlogDetailSidebar({ currentSlug }: BlogDetailSidebarProps) {
                   {item.title}
                 </h4>
                 <p className="text-[11px] text-slate-400 font-medium">
-                  {item.readTime} • {item.date}
+                  {item.date}
                 </p>
               </div>
             </Link>

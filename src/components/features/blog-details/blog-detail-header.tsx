@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Clock, Eye, Calendar } from "lucide-react";
+import { ArrowLeft, Eye, Calendar } from "lucide-react";
 import { BlogPost } from "@/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -46,11 +46,6 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
         <Badge variant="indigo" className="font-bold px-3 py-1 rounded-full text-xs">
           {post.category}
         </Badge>
-        <span className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-          <Clock className="w-3.5 h-3.5 text-slate-400" />
-          <span>{post.readTime}</span>
-        </span>
-        <span className="text-slate-300">•</span>
         <span className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
           <Eye className="w-3.5 h-3.5 text-slate-400" />
           <span>{post.views.toLocaleString()} views</span>

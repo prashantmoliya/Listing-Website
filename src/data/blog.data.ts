@@ -20,9 +20,7 @@ export interface BlogPost {
   categorySlug: string;
   author: BlogAuthor;
   date: string;
-  readTime: string;
   image: string;
-  featured?: boolean;
   tags: string[];
   views: number;
 }
@@ -34,7 +32,7 @@ export interface BlogCategory {
 }
 
 export const blogCategories: BlogCategory[] = [
-  { name: "All Articles", slug: "all", count: 8 },
+  { name: "All", slug: "all", count: 8 },
   { name: "Local SEO", slug: "local-seo", count: 3 },
   { name: "Directory Guides", slug: "directory-guides", count: 2 },
   { name: "Business Growth", slug: "business-growth", count: 1 },
@@ -62,9 +60,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
     },
     date: "Oct 05, 2026",
-    readTime: "6 min read",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
-    featured: true,
     tags: ["Local SEO", "Backlinks", "Google Ranking", "Directory Listing"],
     views: 3420,
   },
@@ -87,9 +83,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
     },
     date: "Oct 03, 2026",
-    readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=80",
-    featured: false,
     tags: ["Backlinks", "Directory Guides", "SEO Checklist"],
     views: 2890,
   },
@@ -112,9 +106,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
     },
     date: "Sep 28, 2026",
-    readTime: "4 min read",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80",
-    featured: false,
     tags: ["Google Business Profile", "Local SEO", "Multi-Platform"],
     views: 1940,
   },
@@ -137,9 +129,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
     },
     date: "Sep 25, 2026",
-    readTime: "7 min read",
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&auto=format&fit=crop&q=80",
-    featured: false,
     tags: ["NAP Consistency", "Local SEO", "Audit Guide"],
     views: 1620,
   },
@@ -164,9 +154,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
     },
     date: "Sep 20, 2026",
-    readTime: "4 min read",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80",
-    featured: false,
     tags: ["Best Practices", "Listing Tips", "Verification"],
     views: 2150,
   },
@@ -189,9 +177,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
     },
     date: "Sep 15, 2026",
-    readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80",
-    featured: false,
     tags: ["Case Study", "Success Stories", "MSME Growth"],
     views: 2780,
   },
@@ -214,9 +200,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
     },
     date: "Sep 10, 2026",
-    readTime: "6 min read",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80",
-    featured: false,
     tags: ["Customer Reviews", "Lead Generation", "Business Growth"],
     views: 1840,
   },
@@ -240,9 +224,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
     },
     date: "Sep 05, 2026",
-    readTime: "8 min read",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80",
-    featured: false,
     tags: ["MSME", "Digital Marketing", "Budget Growth"],
     views: 3110,
   },

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Eye, ArrowRight, Sparkles } from "lucide-react";
+import { Eye, ArrowRight, Sparkles } from "lucide-react";
 import { BlogPost } from "@/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -28,33 +28,17 @@ export function BlogFeaturedCard({ post }: BlogFeaturedCardProps) {
           />
           {/* Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent lg:hidden" />
-
-          {/* Featured Ribbon Badge */}
-          <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-            <Badge 
-              variant="amber"
-              className="bg-amber-400 text-slate-950 border-0 font-extrabold px-3 py-1 rounded-full shadow-md gap-1.5"
-            >
-              <Sparkles className="w-3.5 h-3.5 fill-slate-950" />
-              <span>Featured Article</span>
-            </Badge>
-          </div>
         </div>
 
         {/* Right: Content details */}
         <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
           <div className="space-y-4">
             
-            {/* Meta Row: Category + Read Time + Views */}
+            {/* Meta Row: Category + Views */}
             <div className="flex items-center gap-3 flex-wrap text-xs font-semibold text-slate-500">
               <Badge variant="indigo" className="font-bold px-2.5 py-0.5 rounded-full">
                 {post.category}
               </Badge>
-              <span className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
-                <span>{post.readTime}</span>
-              </span>
-              <span>•</span>
               <span className="flex items-center gap-1">
                 <Eye className="w-3.5 h-3.5 text-slate-400" />
                 <span>{post.views.toLocaleString()} views</span>

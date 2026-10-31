@@ -45,13 +45,13 @@ export function BlogContent() {
     });
   }, [searchQuery, activeCategory]);
 
-  // Featured post (only on default "All" category view without search)
+  // Latest post on top (only on default "All" category view without search)
   const featuredPost = useMemo(() => {
     if (activeCategory === "all" && !searchQuery.trim()) {
-      return blogPosts.find((p) => p.featured) || blogPosts[0];
+      return filteredPosts[0] || null;
     }
     return null;
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, filteredPosts]);
 
   // Exclude featured post from grid only on default view so it isn't duplicated
   const gridPosts = useMemo(() => {
